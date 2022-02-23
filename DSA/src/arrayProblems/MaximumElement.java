@@ -19,6 +19,6 @@ public class MaximumElement {
 	public static void main(String[] args) {
 		int[] inputArray = {2,1,3,4,5,6};
 		MaximumElement element = new MaximumElement();
-		System.out.println("Maximum Element in the array is : "+element.findMaxElement(inputArray));
+		System.out.println("Maximum Element is : "+element.findMaxElement(inputArray));
 	}
 }
