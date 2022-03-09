@@ -7,7 +7,6 @@ public class ReverseArray {
 		for(int i=originalText.length-1;i>=0;i--) {
 			reversedText[(originalText.length-1)-i]=originalText[i];
 		}
-		System.out.println(reversedText);
 		return reversedText;
 	}
 	
