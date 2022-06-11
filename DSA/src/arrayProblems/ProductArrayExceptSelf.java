@@ -23,9 +23,26 @@ public class ProductArrayExceptSelf {
 		return returnedArray;
 	}
 
+	// O(n) Time Complexity and O(1) Space Complexity
+	public int[] productExceptSelfOptimized(int[] inputArr) {
+		int[] returnedArray = new int[inputArr.length];
+		returnedArray[0] = 1;
+		int R = 1;
+		for (int i = 1; i < inputArr.length; i++) {
+			returnedArray[i] =returnedArray[i-1]*inputArr[i-1];
+		}
+		for (int j=inputArr.length-2;j>=-1;j--) {
+			returnedArray[j+1] = returnedArray[j+1]*R;
+			R = R*inputArr[j+1];
+		}
+		return returnedArray;
+	}
+
 	public static void main(String[] args) {
-		int[] inputArray = { 1, 2, 3, 4 };
+//		int[] inputArray = { 1, 2, 3, 4 };
+		int[] inputArray = {-1,1,0,-3,3};
 		ProductArrayExceptSelf exceptSelf = new ProductArrayExceptSelf();
-		exceptSelf.productExceptSelf(inputArray);
+//		exceptSelf.productExceptSelf(inputArray);
+		exceptSelf.productExceptSelfOptimized(inputArray);
 	}
 }
