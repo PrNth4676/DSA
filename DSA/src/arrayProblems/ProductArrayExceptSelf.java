@@ -29,7 +29,7 @@ public class ProductArrayExceptSelf {
 		returnedArray[0] = 1;
 		int R = 1;
 		for (int i = 1; i < inputArr.length; i++) {
-			returnedArray[i] =returnedArray[i-1]*inputArr[i-1];
+			returnedArray[i]=returnedArray[i-1]*inputArr[i-1];
 		}
 		for (int j=inputArr.length-2;j>=-1;j--) {
 			returnedArray[j+1] = returnedArray[j+1]*R;
