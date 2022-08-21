@@ -72,6 +72,37 @@ public class PatternProgram {
 			System.out.println();
 		}
 	}
+	
+	public void hollowLeftTraingle(int size) {
+		for (int i = 0; i < size; i++) {
+			if (i == 0 || i == size - 1) {
+				for (int j = 0; j <=i; j++) {
+					System.out.print("*");
+				}
+			} else {
+				for (int k = 0; k <= i; k++) {
+					if (k == 0 || k == i) {
+						System.out.print("*");
+					} else {
+						System.out.print(" ");
+					}
+				}
+			}
+			System.out.println();
+		}
+	}
+	
+	public void pyramid(int size) {
+		for(int i=0;i<size;i++) {
+			for(int j=0;j<size-i-1;j++) {
+				System.out.print(" ");
+			}
+			for(int k=0;k<2*i+1;k++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
 
 	public static void main(String[] args) {
 		PatternProgram program = new PatternProgram();
@@ -80,6 +111,8 @@ public class PatternProgram {
 //		program.leftTriangleStarPattern(5);
 //		program.rightTriangleStarPattern(5);
 //		program.leftDownTriangle(5);
-		program.rightDownTriangle(5);
+//		program.rightDownTriangle(5);
+//		program.hollowLeftTraingle(5);
+		program.pyramid(5);
 	}
 }
