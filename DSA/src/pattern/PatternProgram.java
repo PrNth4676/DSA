@@ -52,31 +52,31 @@ public class PatternProgram {
 	}
 
 	public void leftDownTriangle(int size) {
-		for(int i=0;i<size;i++) {
-			for(int j=size-1;j>=i;j--) {
+		for (int i = 0; i < size; i++) {
+			for (int j = size - 1; j >= i; j--) {
 				System.out.print("*");
 			}
 			System.out.println();
 		}
 	}
-	
-	//REDO AGAIN ON 19-08-2022
+
+	// REDO AGAIN ON 19-08-2022
 	public void rightDownTriangle(int size) {
-		for(int i=0;i<size;i++) {
-			for(int j=0;j<i;j++) {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < i; j++) {
 				System.out.print(" ");
 			}
-			for(int j=size;j>i;j--) {
+			for (int j = size; j > i; j--) {
 				System.out.print("*");
 			}
 			System.out.println();
 		}
 	}
-	
+
 	public void hollowLeftTraingle(int size) {
 		for (int i = 0; i < size; i++) {
 			if (i == 0 || i == size - 1) {
-				for (int j = 0; j <=i; j++) {
+				for (int j = 0; j <= i; j++) {
 					System.out.print("*");
 				}
 			} else {
@@ -91,14 +91,43 @@ public class PatternProgram {
 			System.out.println();
 		}
 	}
-	
+
 	public void pyramid(int size) {
-		for(int i=0;i<size;i++) {
-			for(int j=0;j<size-i-1;j++) {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size - i - 1; j++) {
 				System.out.print(" ");
 			}
-			for(int k=0;k<2*i+1;k++) {
+			for (int k = 0; k < 2 * i + 1; k++) {
 				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+	public void reversePyramid(int size) {
+		for (int i = size - 1; i >= 0; i--) {
+			for (int j = 0; j < size - i - 1; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 0; k < 2 * i + 1; k++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+	//Start again on 26-08-2022
+	public void hollowPyramid(int size) {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size - i - 1; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 0; k < 2 * i + 1; k++) {
+				if (k == 0 || k == 2 * i) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
 			}
 			System.out.println();
 		}
@@ -113,6 +142,8 @@ public class PatternProgram {
 //		program.leftDownTriangle(5);
 //		program.rightDownTriangle(5);
 //		program.hollowLeftTraingle(5);
-		program.pyramid(5);
+//		program.pyramid(5);
+//		program.reversePyramid(5);
+		program.hollowPyramid(5);
 	}
 }
