@@ -122,8 +122,11 @@ public class PatternProgram {
 			for (int j = 0; j < size - i - 1; j++) {
 				System.out.print(" ");
 			}
+			
 			for (int k = 0; k < 2 * i + 1; k++) {
 				if (k == 0 || k == 2 * i) {
+					System.out.print("*");
+				} else if(i==size-1) {
 					System.out.print("*");
 				} else {
 					System.out.print(" ");
@@ -133,6 +136,28 @@ public class PatternProgram {
 		}
 	}
 
+	public void hourglass(int size) {
+		for (int i = size - 1; i >= 0; i--) {
+			for (int j = 0; j < size - i - 1; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 0; k < 2 * i + 1; k++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size - i - 1; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 0; k < 2 * i + 1; k++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	
 	public static void main(String[] args) {
 		PatternProgram program = new PatternProgram();
 //		program.squarePattern(5);
@@ -144,6 +169,7 @@ public class PatternProgram {
 //		program.hollowLeftTraingle(5);
 //		program.pyramid(5);
 //		program.reversePyramid(5);
-		program.hollowPyramid(5);
+//		program.hollowPyramid(5);
+		program.hourglass(5);
 	}
 }
