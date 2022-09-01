@@ -116,17 +116,17 @@ public class PatternProgram {
 		}
 	}
 
-	//Start again on 26-08-2022
+	// Start again on 26-08-2022
 	public void hollowPyramid(int size) {
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size - i - 1; j++) {
 				System.out.print(" ");
 			}
-			
+
 			for (int k = 0; k < 2 * i + 1; k++) {
 				if (k == 0 || k == 2 * i) {
 					System.out.print("*");
-				} else if(i==size-1) {
+				} else if (i == size - 1) {
 					System.out.print("*");
 				} else {
 					System.out.print(" ");
@@ -146,7 +146,7 @@ public class PatternProgram {
 			}
 			System.out.println();
 		}
-		
+
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size - i - 1; j++) {
 				System.out.print(" ");
@@ -157,7 +157,23 @@ public class PatternProgram {
 			System.out.println();
 		}
 	}
-	
+
+	public void rightPascalTriangle(int size) {
+		for (int i = 1; i <= size; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+
+		for (int i = size-1; i >= 1; i--) {
+			for (int j = 0; j < i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
 	public static void main(String[] args) {
 		PatternProgram program = new PatternProgram();
 //		program.squarePattern(5);
@@ -170,6 +186,7 @@ public class PatternProgram {
 //		program.pyramid(5);
 //		program.reversePyramid(5);
 //		program.hollowPyramid(5);
-		program.hourglass(5);
+//		program.hourglass(5);
+		program.rightPascalTriangle(5);
 	}
 }
