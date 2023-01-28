@@ -54,6 +54,8 @@ public class WarmUpProblems {
 			int min = inputArray[0];
 			int minIndex = 0;
 			int maxIndex = 0;
+			// Max and Min value and its respective indexes gets updated in the below for
+			// loop
 			for (int i = 1; i < inputArray.length; i++) {
 				if (inputArray[i] > max) {
 					max = inputArray[i];
@@ -63,6 +65,7 @@ public class WarmUpProblems {
 					minIndex = i;
 				}
 			}
+			//Creation of a new array which won't be containing max and min value
 			int[] anotherArray = new int[inputArray.length - 2];
 			for (int j = 0, k = 0; j < inputArray.length; j++) {
 				if (j != maxIndex && j != minIndex) {
@@ -70,6 +73,7 @@ public class WarmUpProblems {
 					k++;
 				}
 			}
+			//Updating the original input array with the above array
 			inputArray = anotherArray;
 		}
 		return inputArray;
@@ -88,7 +92,7 @@ public class WarmUpProblems {
 //		problems.printElementsInAlternate(inputArray);
 //		System.out.println(problems.perfectArray(inputArray));
 //		problems.removeElementFromArray(inputArray);
-		System.out.println(problems.isNumberFascinating(192));
-//		problems.removeElementFromArray(inputArray);
+//		System.out.println(problems.isNumberFascinating(192));
+		problems.removeElementFromArray(inputArray);
 	}
 }
