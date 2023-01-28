@@ -76,22 +76,7 @@ public class WarmUpProblems {
 	}
 
 	public String isNumberFascinating(int num) {
-		/*
-		 * int multiplyByTwo = num*2; int multiplyByThree = num*3; int[] numToArray =
-		 * new int[9]; for(int i=0;i<numToArray.length;i++) { numToArray[i]=num%100; num
-		 * = num/10; }
-		 */
-		String number = Integer.toString(num);
-		number = number.concat(Integer.toString(num * 2));
-		number = number.concat(Integer.toString(num * 3));
-		String regex = "[0-9]{1}";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(number);
-		if (m.matches()) {
-			return "FASCINATING";
-		} else {
-			return "NOT FASCINATING";
-		}
+		return "NOT FASCINATING";
 	}
 
 	public static void main(String[] args) {
