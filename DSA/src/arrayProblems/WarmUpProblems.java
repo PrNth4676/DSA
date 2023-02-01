@@ -65,7 +65,7 @@ public class WarmUpProblems {
 					minIndex = i;
 				}
 			}
-			//Creation of a new array which won't be containing max and min value
+			// Creation of a new array which won't be containing max and min value
 			int[] anotherArray = new int[inputArray.length - 2];
 			for (int j = 0, k = 0; j < inputArray.length; j++) {
 				if (j != maxIndex && j != minIndex) {
@@ -73,7 +73,7 @@ public class WarmUpProblems {
 					k++;
 				}
 			}
-			//Updating the original input array with the above array
+			// Updating the original input array with the above array
 			inputArray = anotherArray;
 		}
 		return inputArray;
@@ -83,9 +83,24 @@ public class WarmUpProblems {
 		return "NOT FASCINATING";
 	}
 
+	public int kangarooJump(String input) {
+//		String[] listValue = input.split(",");
+//        int firstValue = Integer.parseInt(listValue[0]);
+//        int lastValue = Integer.parseInt(listValue[1]);
+		for (int i = 3, j = 7; i <= 1000; i += 3) {
+//            firstValue+=i;
+//            lastValue+=j;
+			j += 7;
+			if (i == j)
+				return i;
+		}
+		return -1;
+	}
+	
+
 	public static void main(String[] args) {
 		WarmUpProblems problems = new WarmUpProblems();
-		int[] inputArray = { 1, 2, 3, 4, 5 };
+//		int[] inputArray = { 1, 2, 3, 4, 5 };
 //		System.out.println(problems.sumOfArray(inputArray));
 //		System.out.println(problems.printElementAtIndex(inputArray, 9));
 //		System.out.println(problems.noOfElementsLess(inputArray, 7));
@@ -93,6 +108,7 @@ public class WarmUpProblems {
 //		System.out.println(problems.perfectArray(inputArray));
 //		problems.removeElementFromArray(inputArray);
 //		System.out.println(problems.isNumberFascinating(192));
-		problems.removeElementFromArray(inputArray);
+//		problems.removeElementFromArray(inputArray);
+		problems.kangarooJump("200,100");
 	}
 }
