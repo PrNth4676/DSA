@@ -74,9 +74,40 @@ public class WarmUpProblemOne {
 		}
 	}
 
+	//Remove until last element
+	public static int[] removeElements(int[] inputArr) {
+		while(inputArr.length!=1) {
+			int minIndex = 0;
+			int maxIndex = 0;
+			// Find the max and min element
+			int max = inputArr[0];
+			int min = inputArr[0];
+			for (int i = 1; i < inputArr.length; i++) {
+				if (inputArr[i] > max) {
+					max = inputArr[i];
+					maxIndex = i;
+				} else if (inputArr[i] < min) {
+					min = inputArr[i];
+				}
+			}
+
+			// Creation of a new array which won't be containing max and min value
+			int[] anotherArray = new int[inputArr.length - 2];
+			for (int j = 0, k = 0; j < inputArr.length; j++) {
+				if (j != maxIndex && j != minIndex) {
+					anotherArray[k] = inputArr[j];
+					k++;
+				}
+			}
+			// Updating the original input array with the above array
+			inputArr = anotherArray;
+		}
+		return inputArr;
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] inputArray = { 1, 2, 3, 4, 8, 10, 11 };
+		int[] inputArray = { 1, 2, 3, 4, 8, 12, 11 };
 		System.out.println(WarmUpProblemOne.sumOfIntegers(inputArray));
 		System.out.println(WarmUpProblemOne.printKeyElement(inputArray, 5));
 		System.out.println(WarmUpProblemOne.elementEqualToN(inputArray, 9));
@@ -87,5 +118,6 @@ public class WarmUpProblemOne {
 		}
 		int[] secInputArr = { 1, 2, 3, 4, 3, 2, 1 };
 		System.out.println(WarmUpProblemOne.isArrayPerfect(secInputArr));
+		WarmUpProblemOne.removeElements(inputArray);
 	}
 }
