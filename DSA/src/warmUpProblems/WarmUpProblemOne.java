@@ -130,6 +130,15 @@ public class WarmUpProblemOne {
 		return inputArr;
 	}
 	
+	//Sum of Numbers
+	public static int sumOfNumbers(int no) {
+		int sum=0;
+		for(int i=1;i<=no;i++) {
+			sum+=i;
+		}
+		return sum;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] inputArray = { 1, 2, 3, 4, 8, 12, 11 };
@@ -145,5 +154,6 @@ public class WarmUpProblemOne {
 		System.out.println(WarmUpProblemOne.isArrayPerfect(secInputArr));
 		WarmUpProblemOne.removeElements(inputArray);
 		WarmUpProblemOne.arrayExpectTwo(inputArray);
+		System.out.println("Sum is : "+WarmUpProblemOne.sumOfNumbers(20));
 	}
 }
