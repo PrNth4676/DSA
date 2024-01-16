@@ -104,7 +104,32 @@ public class WarmUpProblemOne {
 		}
 		return inputArr;
 	}
-
+	
+	//Remove the two biggest
+	public static int[] arrayExpectTwo(int[] inputArr) {
+		int value=0;
+		while(value<3) {
+			int max=inputArr[0];
+			int maxIndex = 0;
+			for(int i=1;i<inputArr.length;i++) {
+				if(inputArr[i]>max) {
+					max=inputArr[i];
+					maxIndex=i;
+				}
+			}
+			int[] anotherArray = new int[inputArr.length-1];
+			for(int j=0,k=0;j<inputArr.length;j++) {
+				if(j!=maxIndex) {
+					anotherArray[k]=inputArr[j];
+					k++;		
+				}
+			}
+			inputArr=anotherArray;
+			value++;
+		}
+		return inputArr;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] inputArray = { 1, 2, 3, 4, 8, 12, 11 };
@@ -119,5 +144,6 @@ public class WarmUpProblemOne {
 		int[] secInputArr = { 1, 2, 3, 4, 3, 2, 1 };
 		System.out.println(WarmUpProblemOne.isArrayPerfect(secInputArr));
 		WarmUpProblemOne.removeElements(inputArray);
+		WarmUpProblemOne.arrayExpectTwo(inputArray);
 	}
 }
