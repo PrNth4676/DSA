@@ -2,6 +2,8 @@ package warmUpProblems;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class WarmUpProblemOne {
 
@@ -139,6 +141,25 @@ public class WarmUpProblemOne {
 		return sum;
 	}
 	
+	public static String isFascinating(String number) {
+		number = number+String.valueOf(Integer.parseInt(number)*2)+String.valueOf(Integer.parseInt(number)*3);
+		int[] freq = new int[10];
+		for(int i=0;i<number.length();i++) {
+			int digit = number.charAt(i)-'0';
+			if(freq[digit]>0 && digit!=0) {
+				return "Not Fascinating";
+			} else {
+				freq[digit]++;
+			}
+		}
+		for (int i = 1; i < freq.length; i++)
+        {
+            if (freq[i] == 0)
+                return "Not Fascinating";
+        }
+        return "Fascinating";
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] inputArray = { 1, 2, 3, 4, 8, 12, 11 };
@@ -155,5 +176,6 @@ public class WarmUpProblemOne {
 		WarmUpProblemOne.removeElements(inputArray);
 		WarmUpProblemOne.arrayExpectTwo(inputArray);
 		System.out.println("Sum is : "+WarmUpProblemOne.sumOfNumbers(20));
+		System.out.println(WarmUpProblemOne.isFascinating("192"));
 	}
 }
