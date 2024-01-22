@@ -160,22 +160,35 @@ public class WarmUpProblemOne {
         return "Fascinating";
 	}
 	
+	public static int makeArrayEven(int[] inputArr) {
+		int leftSum=0;
+		int rightSum=0;
+		for(int i=0,j=inputArr.length-1;i<inputArr.length/2;i++,j--) {
+			leftSum+=inputArr[i];
+			rightSum+=inputArr[j];
+		}
+		int makeArrBalance = Math.abs(leftSum-rightSum);
+		return makeArrBalance;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] inputArray = { 1, 2, 3, 4, 8, 12, 11 };
-		System.out.println(WarmUpProblemOne.sumOfIntegers(inputArray));
-		System.out.println(WarmUpProblemOne.printKeyElement(inputArray, 5));
-		System.out.println(WarmUpProblemOne.elementEqualToN(inputArray, 9));
-		WarmUpProblemOne.printAlternateElements(inputArray);
-		List<Integer> returnedList = WarmUpProblemOne.returnElementsEqualingToIndex(inputArray);
-		for (Integer i : returnedList) {
-			System.out.println(i);
-		}
-		int[] secInputArr = { 1, 2, 3, 4, 3, 2, 1 };
-		System.out.println(WarmUpProblemOne.isArrayPerfect(secInputArr));
-		WarmUpProblemOne.removeElements(inputArray);
-		WarmUpProblemOne.arrayExpectTwo(inputArray);
-		System.out.println("Sum is : "+WarmUpProblemOne.sumOfNumbers(20));
-		System.out.println(WarmUpProblemOne.isFascinating("192"));
+//		int[] inputArray = { 1, 2, 3, 4, 8, 12, 11 };
+//		System.out.println(WarmUpProblemOne.sumOfIntegers(inputArray));
+//		System.out.println(WarmUpProblemOne.printKeyElement(inputArray, 5));
+//		System.out.println(WarmUpProblemOne.elementEqualToN(inputArray, 9));
+//		WarmUpProblemOne.printAlternateElements(inputArray);
+//		List<Integer> returnedList = WarmUpProblemOne.returnElementsEqualingToIndex(inputArray);
+//		for (Integer i : returnedList) {
+//			System.out.println(i);
+//		}
+//		int[] secInputArr = { 1, 2, 3, 4, 3, 2, 1 };
+//		System.out.println(WarmUpProblemOne.isArrayPerfect(secInputArr));
+//		WarmUpProblemOne.removeElements(inputArray);
+//		WarmUpProblemOne.arrayExpectTwo(inputArray);
+//		System.out.println("Sum is : "+WarmUpProblemOne.sumOfNumbers(20));
+//		System.out.println(WarmUpProblemOne.isFascinating("192"));
+		int[] perfectArr = {1,2,3,4,5,6};
+		System.out.println(WarmUpProblemOne.makeArrayEven(perfectArr));
 	}
 }
