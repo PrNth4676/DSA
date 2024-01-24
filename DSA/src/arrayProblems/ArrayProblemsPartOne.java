@@ -111,6 +111,26 @@ public class ArrayProblemsPartOne {
 		return resultArr;
 	}
 
+	//Maximum Wealth Problem in LeetCode
+	public int maximumWealth(int[][] accounts) {
+        int[] wealthArray = new int[accounts.length];
+        for(int i=0;i<accounts.length;i++){
+            int wealth = 0;
+            for(int j=0;j<accounts[i].length;j++){
+                wealth+=accounts[i][j];
+            }
+            wealthArray[i]=wealth;
+        }
+        int richest = wealthArray[0];
+        for(int i=1;i<wealthArray.length;i++) {
+        	if(wealthArray[i]>richest) {
+        		richest=wealthArray[i];
+        	}
+        }
+        return richest;
+    }
+	
+	
 	public static void main(String[] args) {
 		int[] input = { 16, 17, 4, 5, 3, 2 };
 //		int[] input = { 6, 2, 6, 5, 3, 1 };
@@ -122,5 +142,7 @@ public class ArrayProblemsPartOne {
 //		one.arrangeArrayToRHSIncludingElement(input);
 		int[] nums = { 2, 7, 11, 15 };
 		one.twoSum(nums, 9);
+		int[][] wealth = {{7,8},{1,3},{6,8}};
+		System.out.println(one.maximumWealth(wealth));
 	}
 }
