@@ -80,7 +80,7 @@ public class ArrayProblemsPartOne {
 		return input;
 	}
 
-	//Not completely correct
+	// Not completely correct
 	public int[] twoSum(int[] nums, int target) {
 		int[] resultArr = new int[2];
 		int index = 0;
@@ -90,47 +90,58 @@ public class ArrayProblemsPartOne {
 			for (int i = 1; i < length; i++) {
 				if (nums[i] > max) {
 					max = nums[i];
-					index=i;
+					index = i;
 				}
 			}
 			length--;
-			if(target>max) {
+			if (target > max) {
 				System.out.println(max);
 				System.out.println(index);
 				resultArr[1] = index;
 				target -= max;
 			} else {
-				max=nums[0];
+				max = nums[0];
 			}
 		}
-		for(int i=0;i<nums.length;i++) {
-			if(target==nums[i]) {
-				resultArr[0]=i;
+		for (int i = 0; i < nums.length; i++) {
+			if (target == nums[i]) {
+				resultArr[0] = i;
 			}
 		}
 		return resultArr;
 	}
 
-	//Maximum Wealth Problem in LeetCode
+	// Maximum Wealth Problem in LeetCode
 	public int maximumWealth(int[][] accounts) {
-        int[] wealthArray = new int[accounts.length];
-        for(int i=0;i<accounts.length;i++){
-            int wealth = 0;
-            for(int j=0;j<accounts[i].length;j++){
-                wealth+=accounts[i][j];
-            }
-            wealthArray[i]=wealth;
-        }
-        int richest = wealthArray[0];
-        for(int i=1;i<wealthArray.length;i++) {
-        	if(wealthArray[i]>richest) {
-        		richest=wealthArray[i];
-        	}
-        }
-        return richest;
-    }
-	
-	
+		int[] wealthArray = new int[accounts.length];
+		for (int i = 0; i < accounts.length; i++) {
+			int wealth = 0;
+			for (int j = 0; j < accounts[i].length; j++) {
+				wealth += accounts[i][j];
+			}
+			wealthArray[i] = wealth;
+		}
+		int richest = wealthArray[0];
+		for (int i = 1; i < wealthArray.length; i++) {
+			if (wealthArray[i] > richest) {
+				richest = wealthArray[i];
+			}
+		}
+		return richest;
+	}
+
+	// Running Sum of 1d Array
+	public int[] runningSum(int[] nums) {
+		int firstNo = nums[0];
+		int[] returnedArr = new int[nums.length];
+		returnedArr[0] = firstNo;
+		for (int i = 1; i < nums.length; i++) {
+			firstNo += nums[i];
+			returnedArr[i] = firstNo;
+		}
+		return returnedArr;
+	}
+
 	public static void main(String[] args) {
 		int[] input = { 16, 17, 4, 5, 3, 2 };
 //		int[] input = { 6, 2, 6, 5, 3, 1 };
@@ -142,7 +153,7 @@ public class ArrayProblemsPartOne {
 //		one.arrangeArrayToRHSIncludingElement(input);
 		int[] nums = { 2, 7, 11, 15 };
 		one.twoSum(nums, 9);
-		int[][] wealth = {{7,8},{1,3},{6,8}};
+		int[][] wealth = { { 7, 8 }, { 1, 3 }, { 6, 8 } };
 		System.out.println(one.maximumWealth(wealth));
 	}
 }
