@@ -1,4 +1,5 @@
 package arrayProblems;
+import java.util.*;
 
 public class ArrayProblemsPartOne {
 
@@ -141,6 +142,32 @@ public class ArrayProblemsPartOne {
 		}
 		return returnedArr;
 	}
+	
+	public String convertToGoodString(String inputString) {
+		String goodString = "";
+//		Scanner scanner = new Scanner(System.in);
+//		String inputString = scanner.nextLine();
+		for(int i=0;i<inputString.length()-1;i++) {
+			if(inputString.charAt(i)==inputString.charAt(i+1)) {
+				goodString+=inputString.charAt(i);
+			} else {
+				goodString+=inputString.charAt(i+1);
+			}
+		}
+		return goodString;
+	}
+	
+	//Remove Duplicates
+	public int removeDuplicates(int[] nums) {
+        int unique = 1;
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]!=nums[i-1]){
+            	nums[unique]=nums[i];
+                unique+=1;
+            }
+        }
+        return unique;
+    }
 
 	public static void main(String[] args) {
 		int[] input = { 16, 17, 4, 5, 3, 2 };
@@ -151,9 +178,12 @@ public class ArrayProblemsPartOne {
 //		one.arrangeArrayToRHSSpace(input);
 //		one.arrangeArrayToFindMaxElement(input);
 //		one.arrangeArrayToRHSIncludingElement(input);
-		int[] nums = { 2, 7, 11, 15 };
-		one.twoSum(nums, 9);
-		int[][] wealth = { { 7, 8 }, { 1, 3 }, { 6, 8 } };
-		System.out.println(one.maximumWealth(wealth));
+//		int[] nums = { 2, 7, 11, 15 };
+//		one.twoSum(nums, 9);
+//		int[][] wealth = { { 7, 8 }, { 1, 3 }, { 6, 8 } };
+//		System.out.println(one.maximumWealth(wealth));
+//		System.out.println(one.convertToGoodString("aabaaabab"));
+		int[] duplicateInput = {0,0,1,1,1,2,2,3,3,4};
+		one.removeDuplicates(duplicateInput);
 	}
 }
