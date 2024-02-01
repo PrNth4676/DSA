@@ -168,7 +168,35 @@ public class ArrayProblemsPartOne {
         }
         return unique;
     }
+	
+	
+	public int maxProfit(int[] prices) {
+        int buyIndex=0;
+        int sellIndex=1;
+        int profit=0;
+        int max_profit=0;
+        while(sellIndex<prices.length){
+        	if(prices[sellIndex]>prices[buyIndex]) {
+        		profit = prices[sellIndex]-prices[buyIndex];
+        		max_profit=Math.max(max_profit, profit);
+        	} else {
+        		buyIndex=sellIndex;
+        	}
+            sellIndex++;
+        }
+        return max_profit;
+    }
 
+	public boolean isPowerOfTwo(int n) {
+        if(n==0){
+            return false;
+        }
+        while(n%2==0){
+            n/=2;
+        }
+        return n==1;
+    }
+	
 	public static void main(String[] args) {
 		int[] input = { 16, 17, 4, 5, 3, 2 };
 //		int[] input = { 6, 2, 6, 5, 3, 1 };
@@ -183,7 +211,10 @@ public class ArrayProblemsPartOne {
 //		int[][] wealth = { { 7, 8 }, { 1, 3 }, { 6, 8 } };
 //		System.out.println(one.maximumWealth(wealth));
 //		System.out.println(one.convertToGoodString("aabaaabab"));
-		int[] duplicateInput = {0,0,1,1,1,2,2,3,3,4};
-		one.removeDuplicates(duplicateInput);
+//		int[] duplicateInput = {0,0,1,1,1,2,2,3,3,4};
+//		one.removeDuplicates(duplicateInput);
+//		int[] prices = {7,1,5,3,6,4};
+//		one.maxProfit(prices);
+		System.out.println(one.isPowerOfTwo(8));
 	}
 }
