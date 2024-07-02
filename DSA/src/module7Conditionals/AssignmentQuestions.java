@@ -4,7 +4,7 @@ public class AssignmentQuestions {
 
 	// Q1
 	public static String isEven(int number) {
-		return ((number % 2 == 0) ? "even" : "odd");
+		return ((number % 2 == 0) ? "even" : "odd"); //Done using Ternary Operation
 	}
 
 	// Q2
