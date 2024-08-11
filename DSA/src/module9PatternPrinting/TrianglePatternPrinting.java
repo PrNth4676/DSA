@@ -81,10 +81,20 @@ public class TrianglePatternPrinting {
 			System.out.println();
 		}
 	}
+	
+	public static void learningPattern() {
+		for(int i=0;i<5;i++) {
+//			System.out.println("*****");
+//			The above can also be written as
+			System.out.print("******");
+			System.out.println(); //This is creating the newline
+		}
+	}
 
 	public static void main(String[] args) {
+		learningPattern();
 //		printRightTriangle(5);
-		printFloydTriangle(5);
+//		printFloydTriangle(5);
 //		printSpecialRightTriangle(5);
 //		printInAlternateRightTriangle(5);
 //		printLeftTriangle(5);
