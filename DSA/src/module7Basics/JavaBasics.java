@@ -8,18 +8,29 @@ public class JavaBasics {
 
 	// UPDATING THE VARIABLES
 	public int updateVariable(int old, int newValue) {
-		//Here, newValue is assigned to the old variable
+		// Here, newValue is assigned to the old variable
 		return old = newValue;
 	}
 
 	public int updateVariableBySum(int old, int newValue) {
-		//Here, newValue is added with the old and then is assigned to the old variable
+		// Here, newValue is added with the old and then is assigned to the old variable
 		return old += newValue;
 	}
 
 	public int updateVariableByDiff(int old, int newValue) {
 		return old -= newValue;
 	}
+
+	public int updateVariableByDiv(int old, int newValue) {
+		return old /= newValue; // Any values beyond the decimal(.) is removed as its an integer variable
+	}
+
+	// To store the decimal value we have to use double or float Data-types
+	public double updateVariableByDiv(double old, double newValue) {
+		return old /= newValue;
+	}
+
+	// INCREMENT AND DECREMENT OPERATIONS
 
 	public static void main(String[] args) {
 		JavaBasics basics = new JavaBasics();
@@ -32,5 +43,7 @@ public class JavaBasics {
 				+ basics.updateVariableBySum(basics.i, 10));
 		System.out.println("The value of variable " + basics.i + " will be updated to : "
 				+ basics.updateVariableByDiff(basics.i, 20));
+		System.out.println("The value of variable " + basics.i + " will be updated to : "
+				+ basics.updateVariableByDiv(basics.i, 10.0));
 	}
 }
