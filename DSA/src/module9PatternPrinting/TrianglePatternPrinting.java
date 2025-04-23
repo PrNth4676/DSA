@@ -81,21 +81,25 @@ public class TrianglePatternPrinting {
 			System.out.println();
 		}
 	}
-	
+
 	public static void learningPattern() {
-		for(int i=0;i<5;i++) {
+		for (int i = 0; i < 4; i++) { // This is the no of rows
 //			System.out.println("*****");
 //			The above can also be written as
-			System.out.print("******");
-			System.out.println(); //This is creating the newline
+//			System.out.print("******");
+//			One can print the no of start using another for-loop
+			for (int j = 0; j < 4; j++) { // This is the no of columns
+				System.out.print("* ");
+			}
+			System.out.println(); // This is creating the newline
 		}
 	}
 
 	public static void main(String[] args) {
-		learningPattern();
-//		printRightTriangle(5);
+//		learningPattern();
+//		printRightTriangle(10);
 //		printFloydTriangle(5);
-//		printSpecialRightTriangle(5);
+		printSpecialRightTriangle(5);
 //		printInAlternateRightTriangle(5);
 //		printLeftTriangle(5);
 //		printInvertedLeftTriangle(5);

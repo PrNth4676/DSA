@@ -1,4 +1,4 @@
-package module8Loops;
+package module9Loops;
 
 public class LoopsBasics {
 

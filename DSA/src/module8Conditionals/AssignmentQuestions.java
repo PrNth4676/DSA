@@ -1,4 +1,4 @@
-package module7Conditionals;
+package module8Conditionals;
 
 public class AssignmentQuestions {
 
@@ -110,7 +110,7 @@ public class AssignmentQuestions {
 //		System.out.println("Absolute value of the number is : " + AssignmentQuestions.returnAbsoluteValue(-5.9));
 //		System.out.println("Transaction Result is : "+AssignmentQuestions.transactionResult(10, 10));
 //		AssignmentQuestions.findGreatestAmongThree(100, 10, 12);
-//		System.out.println("Traingle Type : " + AssignmentQuestions.triangleType(10, 10, 5));
+//		System.out.println("Triangle Type : " + AssignmentQuestions.triangleType(10, 10, 5));
 //		System.out.println("Smallest Number is : " + AssignmentQuestions.findLeastAmongThree(5, 0, 1));
 	}
 }
