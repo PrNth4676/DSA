@@ -32,6 +32,16 @@ public class JavaBasics {
 
 	// INCREMENT AND DECREMENT OPERATIONS
 
+	// Area of a Circle
+	public double findAreaOfCircle(double radius) {
+		return Math.round(Math.PI * Math.pow(radius, 2));
+	}
+
+	// Volume of a Sphere
+	public double findVolumeOfSphere(double radius) {
+		return Math.round(((double) 4 / 3) * Math.PI * Math.pow(radius, 3));
+	}
+
 	public static void main(String[] args) {
 		JavaBasics basics = new JavaBasics();
 		System.out.println("Hello World!"); // Prints a new line after the end of message
@@ -45,5 +55,8 @@ public class JavaBasics {
 				+ basics.updateVariableByDiff(basics.i, 20));
 		System.out.println("The value of variable " + basics.i + " will be updated to : "
 				+ basics.updateVariableByDiv(basics.i, 10.0));
+		double radius = 7;
+		System.out.println("Area of a Circle with radius " + radius + " is : " + basics.findAreaOfCircle(radius));
+		System.out.println("Volume of a Sphere with radius " + radius + " is : " + basics.findVolumeOfSphere(radius));
 	}
 }
