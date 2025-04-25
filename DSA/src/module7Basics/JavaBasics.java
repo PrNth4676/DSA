@@ -77,12 +77,14 @@ public class JavaBasics {
 				+ " at the rate of " + rate + " % is : " + basics.findSI(principalAmount, rate, time));
 		System.out.println("The matured amount on the principal amount of " + principalAmount + " will be : "
 				+ (principalAmount + basics.findSI(principalAmount, rate, time)));
-		Scanner scanner = new Scanner(System.in); // Here, "in" means the system will take input from either Keyboard or Mouse
+		Scanner scanner = new Scanner(System.in); // Here, "in" means the system will take input from either Keyboard or
+													// Mouse
 		System.out.print("Enter the number : ");
 		double number = scanner.nextDouble();
 		System.out.print("Enter the power : ");
 		int power = scanner.nextInt();
-		System.out.println("The number "+number+" raised to power "+power+" is : "+basics.findPowerOfNumber(number, power));
-		scanner.close(); //Closing the scanner to avoid program running indefinitely.
+		System.out.println("The number " + number + " raised to power " + power + " is : "
+				+ basics.findPowerOfNumber(number, power));
+		scanner.close(); // Closing the scanner to avoid program running indefinitely.
 	}
 }
