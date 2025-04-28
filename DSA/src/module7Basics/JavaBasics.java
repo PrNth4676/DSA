@@ -1,7 +1,5 @@
 package module7Basics;
 
-import java.util.Scanner;
-
 public class JavaBasics {
 
 	// VARIABLES
@@ -54,6 +52,35 @@ public class JavaBasics {
 		return Math.pow(number, power);
 	}
 
+	// Modulus Operator
+	public double findModOfNumber(double numerator, double denominator) {
+		// Let a = numerator & b = denominator
+		// Property 1: If a < b then mod will always return a
+		// Property 2: a %(-b) = a % b
+		// Property 3: (-a) % b = -(a % b)
+		return (numerator % denominator);
+	}
+
+	// TYPE CASTING
+	public double returnHalfOfNumber(int number) {
+		return (double) number / 2; // Typecasted up to Double to get the values in decimal
+	}
+
+	public void divideOperation() {
+		double x = 5 / 2;
+		// Here, x will be printed as 2.0.
+		// Reason : 5/2 operation will result in 2 as both are integers.
+		// Post that, the result of division(RHS) gets assigned to the variable x (LHS)
+		// which is double.
+		System.out.println(x); // Hence, x becomes 2.0
+		System.out.println("Division of int/int will result in an integer : " + 5 / 2); // int/int
+		System.out.println("Division of double/double will result in an integer : " + 5.0 / 2.0); // double/double
+		System.out.println("Division of double/int will result in an integer : " + 5.0 / 2); // double/int
+		System.out.println("Division of int/double will result in an integer : " + 5 / 2.0); // int/double
+	}
+
+	// Hierarchy of Operators
+
 	public static void main(String[] args) {
 		JavaBasics basics = new JavaBasics();
 		double radius = 7;
@@ -77,14 +104,17 @@ public class JavaBasics {
 				+ " at the rate of " + rate + " % is : " + basics.findSI(principalAmount, rate, time));
 		System.out.println("The matured amount on the principal amount of " + principalAmount + " will be : "
 				+ (principalAmount + basics.findSI(principalAmount, rate, time)));
-		Scanner scanner = new Scanner(System.in); // Here, "in" means the system will take input from either Keyboard or
-													// Mouse
-		System.out.print("Enter the number : ");
-		double number = scanner.nextDouble();
-		System.out.print("Enter the power : ");
-		int power = scanner.nextInt();
-		System.out.println("The number " + number + " raised to power " + power + " is : "
-				+ basics.findPowerOfNumber(number, power));
-		scanner.close(); // Closing the scanner to avoid program running indefinitely.
+//		Scanner scanner = new Scanner(System.in); // Here, "in" means the system will take input from either Keyboard or
+//													// Mouse
+//		System.out.print("Enter the number : ");
+//		double number = scanner.nextDouble();
+//		System.out.print("Enter the power : ");
+//		int power = scanner.nextInt();
+//		System.out.println("The number " + number + " raised to power " + power + " is : "
+//				+ basics.findPowerOfNumber(number, power));
+//		scanner.close(); // Closing the scanner to avoid program running indefinitely.
+//		System.out.println("The Modulus value is " + basics.findModOfNumber(10, 8));
+		System.out.println("Half of the number is : " + basics.returnHalfOfNumber(7));
+		basics.divideOperation();
 	}
 }
