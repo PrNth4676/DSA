@@ -79,7 +79,25 @@ public class JavaBasics {
 		System.out.println("Division of int/double will result in an integer : " + 5 / 2.0); // int/double
 	}
 
-	// Hierarchy of Operators
+	// Char Data Type
+	public void playWithChar(char ch) {
+		// a b c d .. z - ASCII Values : a = 97, b = 98, ... z = 122 i.e., (a+25)
+		// A B C D .. Z - ASCII Values : A = 65, B = 66, ... z = 90 i.e., (A+25)
+		// 0 1 2 3 .. 9
+		// ! @ # $ .. *
+		System.out.println("ASCII Value of Character : " + ch + " is : " + (int) ch);
+	}
+
+	public boolean compareNumbers(int a, int b) {
+		if (a == b) {
+			return false;
+		} else {
+			if (a > b) {
+				return false;
+			}
+			return true;
+		}
+	}
 
 	public static void main(String[] args) {
 		JavaBasics basics = new JavaBasics();
@@ -114,7 +132,12 @@ public class JavaBasics {
 //				+ basics.findPowerOfNumber(number, power));
 //		scanner.close(); // Closing the scanner to avoid program running indefinitely.
 //		System.out.println("The Modulus value is " + basics.findModOfNumber(10, 8));
-		System.out.println("Half of the number is : " + basics.returnHalfOfNumber(7));
-		basics.divideOperation();
+//		System.out.println("Half of the number is : " + basics.returnHalfOfNumber(7));
+//		basics.divideOperation();
+//		basics.playWithChar('&');
+//		double a = 7 / 22 * (3.14 + 2) * 3 / 5;
+//		System.out.println(a); // The value is zero because the RHS operation is in int where division will
+		// result in 0
+		System.out.println("Two are Equal ? : " + basics.compareNumbers(8, 10));
 	}
 }
