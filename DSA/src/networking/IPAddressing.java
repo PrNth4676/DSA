@@ -18,8 +18,12 @@ public class IPAddressing {
 		return false;
 	}
 
+	public boolean isValidSubnetMask(int mask) {
+		return false;
+	}
+
 	// Perform Sub-netting based on masks provided
-	public List<String> generateSubnets(int mask){
+	public List<String> generateSubnets(int mask) {
 		List<String> subnets = new ArrayList<String>();
 		return subnets;
 	}

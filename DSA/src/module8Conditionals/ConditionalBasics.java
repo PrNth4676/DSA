@@ -48,10 +48,38 @@ public class ConditionalBasics {
 		}
 	}
 
+	// LOGICAL OPERATORS
+	public static boolean isNumberThreeDigit(int number) {
+		// Multiple Conditions
+		if (number > 99 && number < 1000) {
+			return true;
+		}
+		return false;
+	}
+
+	// Using While Method
+//	public static boolean isNumberThreeDigit(int number) {
+//		int count = 0;
+//		while (number > 0) {
+//			number /= 10;
+//			count++;
+//		}
+//		return (count == 3) ? true : false;
+//	}
+
+	public static boolean isNumberDivisibleByThreeOrFive(int number) {
+		if (number % 3 == 0 || number % 5 == 0) {
+			return true;
+		}
+		return false;
+//		return ((number % 3 == 0 || number % 5 == 0)) ? true : false; //Ternary Operator
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Is Number Even : " + ConditionalBasics.isEven(23));
 		System.out.println("Absolute value of number is : " + ConditionalBasics.returnAbsoluteValue(-23));
 //		ConditionalBasics.checkProfit(10, 8);
-		ConditionalBasics.greaterInRectangle(10, 10);
+//		ConditionalBasics.greaterInRectangle(10, 10);
+		System.out.println("Is number 3 digit ? : " + ConditionalBasics.isNumberThreeDigit(120));
 	}
 }
