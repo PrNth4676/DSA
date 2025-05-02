@@ -89,14 +89,14 @@ public class AssignmentQuestions {
 
 	// Q7
 	public static int findLeastAmongThree(int a, int b, int c) {
-		if (a < b) { // b > a
-			if (a < c) { // c > b > a
+		if (a <= b) { // b > a
+			if (a <= c) { // c > b > a
 				return a; // a is smallest
 			} else { // b > a > c
 				return c;
 			}
 		} else { // a > b
-			if (c < b) { // a > b > c
+			if (c <= b) { // a > b > c
 				return c;
 			} else { // c > a > b
 				return b;

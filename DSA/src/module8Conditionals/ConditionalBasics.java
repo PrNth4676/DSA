@@ -75,11 +75,38 @@ public class ConditionalBasics {
 //		return ((number % 3 == 0 || number % 5 == 0)) ? true : false; //Ternary Operator
 	}
 
+	public static int findGreatestAmongThem(int a, int b, int c) {
+		if (a >= b && a >= c) {
+			return a;
+		} else if (b >= a && b >= c) {
+			return b;
+		} else {
+			return c;
+		}
+	}
+
+	public static int findSmallestAmongThem(int a, int b, int c) {
+		if (a <= b) {
+			if (a <= c) { // a < b < c
+				return a;
+			} else { // a > c > b
+				return b;
+			}
+		} else { // a > b
+			if (b <= c) { // a > c > b
+				return b;
+			} else { // a > b > c
+				return c;
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Is Number Even : " + ConditionalBasics.isEven(23));
 		System.out.println("Absolute value of number is : " + ConditionalBasics.returnAbsoluteValue(-23));
 //		ConditionalBasics.checkProfit(10, 8);
 //		ConditionalBasics.greaterInRectangle(10, 10);
 		System.out.println("Is number 3 digit ? : " + ConditionalBasics.isNumberThreeDigit(120));
+		System.out.println("Smallest Among them is : " + ConditionalBasics.findSmallestAmongThem(0, 1, 0));
 	}
 }
