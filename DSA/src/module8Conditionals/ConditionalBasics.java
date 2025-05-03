@@ -101,6 +101,47 @@ public class ConditionalBasics {
 		}
 	}
 
+	public static String findGradeOfStudent(int marks) {
+		if (marks >= 81) {
+			return "Very Good";
+		} else if (marks >= 61) {
+			return "Good";
+		} else if (marks >= 41) {
+			return "Average";
+		} else {
+			return "Fail";
+		}
+	}
+
+	// Find where in the 2D-Plane based on the values of x and y axis
+	public static String findWhereInQuadrant(int x_axis, int y_axis) {
+		if (x_axis == 0) {
+			if (y_axis == 0) {
+				return "Origin";
+			} else if (y_axis > 0) {
+				return "Positive Y-axis";
+			} else {
+				return "Negative Y-axis";
+			}
+		} else if (x_axis > 0) {
+			if (y_axis > 0) {
+				return "First Quadrant";
+			} else if (y_axis < 0) {
+				return "Fourth Quadrant";
+			} else {
+				return "Positive X-axis";
+			}
+		} else {
+			if (y_axis > 0) {
+				return "Second Quadrant";
+			} else if (y_axis < 0) {
+				return "Third Quadrant";
+			} else {
+				return "Negative X-axis";
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Is Number Even : " + ConditionalBasics.isEven(23));
 		System.out.println("Absolute value of number is : " + ConditionalBasics.returnAbsoluteValue(-23));
@@ -108,5 +149,9 @@ public class ConditionalBasics {
 //		ConditionalBasics.greaterInRectangle(10, 10);
 		System.out.println("Is number 3 digit ? : " + ConditionalBasics.isNumberThreeDigit(120));
 		System.out.println("Smallest Among them is : " + ConditionalBasics.findSmallestAmongThem(0, 1, 0));
+		int marks = 91;
+		System.out.println("Grade of Student having marks : " + marks + " will be : "
+				+ ConditionalBasics.findGradeOfStudent(marks));
+		System.out.println("Lies in : " + ConditionalBasics.findWhereInQuadrant(0, 0));
 	}
 }
