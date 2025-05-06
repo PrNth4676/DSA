@@ -3,11 +3,14 @@ package module9Loops;
 public class LoopsBasics {
 
 	public static void understandIncrements(int number) {
-		int pre = ++number; // Increment will happen during execution
-		System.out.println(pre);
-		int post = number++; // Increment will happen post execution i.e., after the line's execution, the
-								// number will be 12 from 11.
-		System.out.println(post);
+		// Increment will happen during execution
+		int pre = ++number; // number is incremented to 11 first, then pre is assigned with the new value of
+							// number
+		System.out.println("Pre Increment: pre = " + pre + ", number = " + number);
+		// Increment will happen post execution
+		int post = number++; // post is assigned the current value of number (11), then number is incremented
+								// to 12
+		System.out.println("Post Increment: post = " + post + ", number = " + number);
 	}
 
 	public static void printHelloWorld(int n) {
@@ -17,9 +20,9 @@ public class LoopsBasics {
 		// loop
 		// i++ means the value of i will be incremented, post the loop run and i=i+1
 		int i = 1;
-		for (i = 1; i <= n; i++) {
+		for (i = 1; i <= n; ++i) {
 			// Here, i will be 1 2 3 4[at 4, the condition will be false and hence, will not
-			// enter into loop.
+			// break-out of the loop
 			System.out.println("Hello World! " + i);
 		}
 		System.out.println(i);
@@ -171,19 +174,23 @@ public class LoopsBasics {
 		return gcd;
 	}
 
+	
+	// Palindrome Number
 	public static boolean isPalindrome(String message) {
 		int l = message.length();
 		int count = 0;
-		for (int i = 0; i < l / 2; i++) {
-			if (message.charAt(i) == message.charAt(l - 1)) {
+		int half = l / 2;
+		for (int i = 0; i < half; i++) {
+			if (message.charAt(i) == message.charAt(l - (i + 1))) {
 				count++;
 				continue;
 			} else
 				break;
 		}
-		return (count > 0) ? true : false;
+		return (count == half) ? true : false;
 	}
 
+	//FIBONACCI SERIES
 	public static void fibonacciSeries(int terms) {
 		int first = 0, second = 1, third = 0;
 		System.out.print(first + " " + second + " ");
@@ -203,7 +210,7 @@ public class LoopsBasics {
 //		LoopsBasics.printMultiplicationTableTill10(5);
 //		LoopsBasics.arithematicProgression(10);
 //		LoopsBasics.geometricProgression(10);
-//		LoopsBasics.whetherComposite(1);
+//		LoopsBasics.whetherComposite(12);
 //		LoopsBasics.printOddNumbers();
 //		LoopsBasics.whileLoop();
 //		System.out.println("Number of digits are : " + LoopsBasics.fetchNoOfDigits(123));
@@ -211,7 +218,7 @@ public class LoopsBasics {
 //		System.out.println("Sum of Natural Numbers are : " + LoopsBasics.sumOfNaturalNumbers(5));
 //		LoopsBasics.multiplicationTable(17);
 //		System.out.println("GCD of two numbers are : " + LoopsBasics.findGCD(6, 3));
-//		System.out.println("Whether Palindrome : " + isPalindrome("MADADADAM"));
-		fibonacciSeries(10);
+		System.out.println("Whether Palindrome : " + isPalindrome("TATAT"));
+//		fibonacciSeries(10);
 	}
 }

@@ -1,9 +1,9 @@
-package module9PatternPrinting;
+package module11PatternPrinting;
 
 public class SquarePatternPrinting {
 
 	public static void printStarRectangle(int rows, int cols) {
-		for (int i = 1; i <= rows; ++i) {// Rows will print the width of the rectangle i.e., no of lines
+		for (int i = 1; i <= rows; ++i) { // Rows will print the width of the rectangle i.e., no of lines
 //			System.out.println("*****");
 			// The above line can also be written as
 //			System.out.print("******");
@@ -47,9 +47,9 @@ public class SquarePatternPrinting {
 	}
 
 	public static void main(String[] args) {
-//		printStarRectangle(5, 3);
+		printStarRectangle(5, 3);
 //		printStarSquare(5);
 //		printNumberSquare(5);
-		printAlphabetSquare(10);
+//		printAlphabetSquare(10);
 	}
 }

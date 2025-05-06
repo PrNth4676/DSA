@@ -1,4 +1,4 @@
-package module9PatternPrinting;
+package module11PatternPrinting;
 
 public class SpecialPatterns {
 
