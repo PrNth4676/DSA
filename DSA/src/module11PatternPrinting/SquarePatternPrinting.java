@@ -47,8 +47,8 @@ public class SquarePatternPrinting {
 	}
 
 	public static void main(String[] args) {
-		printStarRectangle(5, 3);
-//		printStarSquare(5);
+//		printStarRectangle(5, 5);
+//		printStarSquare(6);
 //		printNumberSquare(5);
 //		printAlphabetSquare(10);
 	}
