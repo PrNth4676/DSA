@@ -100,8 +100,8 @@ public class TrianglePatternPrinting {
 //		printRightTriangle(10);
 //		printFloydTriangle(5);
 //		printSpecialRightTriangle(5);
-		printInAlternateRightTriangle(5);
-//		printLeftTriangle(5);
+//		printInAlternateRightTriangle(5);
+		printLeftTriangle(5);
 //		printInvertedLeftTriangle(5);
 //		printInvertedLeftNumberTriangle(5);
 	}

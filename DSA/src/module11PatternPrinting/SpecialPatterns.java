@@ -18,6 +18,8 @@ public class SpecialPatterns {
 	public static void printCrossPlus(int number) {
 		for (int i = 1; i <= number; ++i) {
 			for (int j = 1; j <= number; ++j) {
+				// j == i : Condition for First Diagonal Printing
+				// (i+j) == (number+1) : Condition for Second Diagonal Printing
 				if (j == i || (i + j) == (number + 1))
 					System.out.print("*" + " ");
 				else
@@ -28,17 +30,17 @@ public class SpecialPatterns {
 	}
 
 	public static void printBinaryTriangle(int number) {
-		for (int i = 1; i <= number; ++i) {
-			for (int j = 1; j <= i; ++j) {
-				if (i % 2 != 0) {
-					if (j % 2 != 0) {
-						System.out.print(1 + " ");
+		for (int i = 1; i <= number; ++i) { // Row Iteration
+			for (int j = 1; j <= i; ++j) { // Column Iteration
+				if (i % 2 != 0) { // Row is ODD
+					if (j % 2 != 0) { // Column is ODD
+						System.out.print(1 + " "); // Print 1 in Odd Positions
 					} else {
 						System.out.print(0 + " ");
 					}
-				} else {
-					if (j % 2 == 0) {
-						System.out.print(1 + " ");
+				} else { // Row is EVEN
+					if (j % 2 == 0) { // Column is EVEN
+						System.out.print(1 + " "); // Print 1 in Even Positions
 					} else {
 						System.out.print(0 + " ");
 					}
@@ -50,11 +52,7 @@ public class SpecialPatterns {
 
 	public static void main(String[] args) throws Exception {
 //		printStarPlus(11);
-//		for(int i=1;i<=11;i=i+2) {
 //		printCrossPlus(5);
-//			Thread.sleep(3000);
-//			printCrossPlus(0);
-//		}
 		printBinaryTriangle(5);
 	}
 }
