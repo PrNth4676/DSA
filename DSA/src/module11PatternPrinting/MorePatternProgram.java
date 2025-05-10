@@ -1,6 +1,6 @@
-package pattern;
+package module11PatternPrinting;
 
-public class PatternProgram {
+public class MorePatternProgram {
 
 	public void squarePattern(int size) {
 		for (int i = 0; i < size; i++) {
@@ -180,7 +180,7 @@ public class PatternProgram {
  	}
 	
 	public static void main(String[] args) {
-		PatternProgram program = new PatternProgram();
+		MorePatternProgram program = new MorePatternProgram();
 //		program.squarePattern(5);
 		program.hollowSquare(5);
 //		program.leftTriangleStarPattern(5);

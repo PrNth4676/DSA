@@ -14,7 +14,7 @@ public class CompositePatterns {
 		}
 	}
 
-	// Composite Pattern
+	// Composite Pattern - 2 Loops inside 1 Loop
 	public static void numberTriangleVerticallyFlipped(int number) {
 		for (int i = 1; i <= number; ++i) {
 			for (int j = 1; j < (number + 1 - i); ++j) {
@@ -22,6 +22,18 @@ public class CompositePatterns {
 			}
 			for (int j = 1; j <= i; ++j) {
 				System.out.print(j + " "); // Numbers
+			}
+			System.out.println();
+		}
+	}
+
+	public static void numberRowsTriangleVerticallyLeftFlipped(int number) {
+		for (int i = 1; i <= number; ++i) { // ROWS
+			for (int j = 1; j <= (number - i); ++j) { // COLUMNS
+				System.out.print(" " + " "); // HASH LOOP
+			}
+			for (int j = 1; j <= i; ++j) { // COLUMNS
+				System.out.print(i + " "); // STAR LOOP
 			}
 			System.out.println();
 		}
@@ -56,6 +68,7 @@ public class CompositePatterns {
 			for (int j = 1; j < (number + 1 - i); ++j) {
 				System.out.print(" " + " "); // Spaces
 			}
+			// Note : Odd Number Property is used as we are printing odd number of stars
 			for (int j = 1; j <= (2 * i - 1); ++j) {
 				System.out.print("*" + " "); // Asterisk
 			}
@@ -81,9 +94,11 @@ public class CompositePatterns {
 
 	public static void main(String[] args) {
 //		numberTriangleVerticallyFlipped(5);
+//		numberRowsTriangleVerticallyLeftFlipped(7);
 //		starRhombus(5);
-//		numberRhombus(50);
+//		numberRhombus(10);
 //		starTriangle(15);
-		starTriangleAlternate(5);
+//		starTriangleAlternate(5);
+//		starTriangleVerticallyFlipped(5);
 	}
 }

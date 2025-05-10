@@ -28,11 +28,20 @@ public class TrianglePatternPrinting {
 
 	public static void printLeftTriangle(int number) {
 		for (int i = 1; i <= number; ++i) {
-			for (int j = i; j < number; ++j) {
-				System.out.print(" ");
-			}
-			for (int j = 1; j <= i; ++j) {
-				System.out.print("*");
+			// Code for Composite Pattern Technique
+//			for (int j = i; j < number; ++j) {
+//				System.out.print(" ");
+//			}
+//			for (int j = 1; j <= i; ++j) {
+//				System.out.print("*");
+//			}
+			// It can also be implemented as below
+			for (int j = 1; j <= number; ++j) {
+				if ((i + j) > number) {
+					System.out.print("*" + " ");
+				} else {
+					System.out.print(" "+" ");
+				}
 			}
 			System.out.println();
 		}
@@ -99,7 +108,7 @@ public class TrianglePatternPrinting {
 //		learningPattern();
 //		printRightTriangle(10);
 //		printFloydTriangle(5);
-//		printSpecialRightTriangle(5);
+//		printSpecialRightTriangle(5);git
 //		printInAlternateRightTriangle(5);
 		printLeftTriangle(5);
 //		printInvertedLeftTriangle(5);
