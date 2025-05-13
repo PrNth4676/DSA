@@ -98,7 +98,7 @@ public class CompositePatterns {
 //		starRhombus(5);
 //		numberRhombus(10);
 //		starTriangle(15);
-//		starTriangleAlternate(5);
+		starTriangleAlternate(5);
 //		starTriangleVerticallyFlipped(5);
 	}
 }
