@@ -104,40 +104,6 @@ public class TrianglePatternPrinting {
 		}
 	}
 
-	// Number Palindrome using Composite Pattern (3 For Loops)
-	public static void numberPalindromePyramid(int number) {
-		for (int i = 1; i <= number; ++i) {
-			for (int j = 1; j <= (number - i); ++j) {
-				System.out.print(" " + " ");
-			}
-			for (int j = 1; j <= i; ++j) {
-				System.out.print(j + " ");
-			}
-			for (int k = (i - 1); k > 0; --k) {
-				System.out.print(k + " ");
-			}
-			System.out.println();
-		}
-	}
-
-	public static void starBridge(int number) {
-		for (int i = 1; i <= (2 * number - 1); ++i) {
-			System.out.print("*" + " "); // First Row
-		}
-		System.out.println();
-		for (int i = 1; i <= number; ++i) {
-			for (int j = 1; j <= (number - i); ++j) { // Stars
-				System.out.print("*" + " ");
-			}
-			for (int k = 1; k <= (2 * i - 1); ++k) { // Spaces
-				System.out.print(" " + " ");
-			}
-			for (int l = (number - i); l > 0; --l) { // Stars
-				System.out.print("*" + " ");
-			}
-			System.out.println();
-		}
-	}
 
 	public static void main(String[] args) {
 //		learningPattern();
@@ -149,6 +115,7 @@ public class TrianglePatternPrinting {
 //		printInvertedLeftTriangle(5);
 //		printInvertedLeftNumberTriangle(5);
 //		numberPalindromePyramid(10);
-		starBridge(5);
+//		starBridge(5);
+//		numberBridge(7);
 	}
 }
