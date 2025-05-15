@@ -169,13 +169,31 @@ public class CompositePatterns {
 			System.out.println();
 		}
 	}
-	
+
 	public static void animateText(String text) {
-		for(int i=0;i<text.length();++i) {
-			System.out.print((char)((int)text.charAt(i)-32)+" ");
-			for(int j=(i+1);j<text.length();++j) {
-				System.out.print(text.charAt(j)+" ");
+		for (int i = 0; i < text.length(); ++i) {
+			for (int k = 0; k < i; ++k) {
+				System.out.print(text.charAt(k) + " ");
 			}
+			System.out.print((char) ((int) text.charAt(i) - 32) + " ");
+			for (int j = (i + 1); j < text.length(); ++j) {
+				System.out.print(text.charAt(j) + " ");
+			}
+		}
+	}
+	
+	//TOUGHEST Question
+	public static void numberSpiral(int number) {
+		for (int i = 1; i <= (2 * number - 1); ++i) {
+			for (int j = 1; j <= (2 * number - 1); ++j) {
+				int a = i, b = j;
+				if (a > number)
+					a = 2 * number - i;
+				if (b > number)
+					b = 2 * number - j;
+				System.out.print((number + 1 - Math.min(a, b)) + " ");
+			}
+			System.out.println();
 		}
 	}
 
@@ -188,6 +206,7 @@ public class CompositePatterns {
 //		starTriangleAlternate(5);
 //		starTriangleVerticallyFlipped(5);
 //		starDiamond(3);
-		animateText("hello");
+//		animateText("hello");
+		numberSpiral(5);
 	}
 }
