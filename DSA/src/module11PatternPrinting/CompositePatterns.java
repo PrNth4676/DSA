@@ -202,11 +202,11 @@ public class CompositePatterns {
 //		numberRowsTriangleVerticallyLeftFlipped(7);
 //		starRhombus(5);
 //		numberRhombus(10);
-//		starTriangle(15);
+		starTriangle(15);
 //		starTriangleAlternate(5);
 //		starTriangleVerticallyFlipped(5);
 //		starDiamond(3);
 //		animateText("hello");
-		numberSpiral(5);
+//		numberSpiral(5);
 	}
 }
