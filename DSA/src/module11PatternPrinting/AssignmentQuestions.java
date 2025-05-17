@@ -110,8 +110,11 @@ public class AssignmentQuestions {
 			for (int j = 1; j <= (number - i); ++j) {
 				System.out.print(" " + " ");
 			}
-			for (int k = 1; k <= (2 * i - 1); ++k) {
-				System.out.print((char) (64 + i) + " ");
+//			for (int k = 1; k <= (2 * i - 1); ++k) {
+//				System.out.print((char) (64 + i) + " ");
+//			}
+			for (int m = (2 * i - 1); m > 0; --m) {
+				System.out.print((char) (64 + m) + " ");
 			}
 			for (int l = (number - i); l > 0; --l) {
 				System.out.print(" " + " ");
