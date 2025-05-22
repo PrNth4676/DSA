@@ -6,6 +6,16 @@ public class ArrayOperations {
 
 	/**
 	 * @author Pratik
+	 * @Summary : Print all elements of Array
+	 **/
+	public static void printElementsOfArray() {
+		for (int element : arr) {
+			System.out.print(element + " ");
+		}
+	}
+
+	/**
+	 * @author Pratik
 	 * @Summary : Returns the sum of all elements in array
 	 **/
 	public static int returnSumOfArray() {
@@ -99,6 +109,23 @@ public class ArrayOperations {
 		}
 	}
 
+	/**
+	 * @author Pratik
+	 * @Summary : Perform Deep-Copy of an Array
+	 * @Note : Shallow-Copy happens when we assign an array to an existing one
+	 *       directly. Here, a new name to the existing array happens and on
+	 *       performing operations on the new array will cause updating the original
+	 *       array as well. To avoid it, Deep-Copy needs to be done. // Shallow Copy
+	 *       is : arr = copied;
+	 **/
+	public static int[] copyArray() {
+		int[] copied = new int[arr.length];
+		for (int i = 0; i < arr.length; ++i) {
+			copied[i] = arr[i];
+		}
+		return copied;
+	}
+
 	public static void main(String[] args) {
 		int element = 20;
 		System.out.println("Element " + element + " is present at index : " + returnElementInArray(element));
@@ -106,8 +133,6 @@ public class ArrayOperations {
 		System.out.println("Minimun Element of the Array is : " + findMinimumElementInArray());
 		System.out.println("Second Maximum Element in the Array is : " + findSecondMaximumElementInArray());
 		updateElementInArray(10, -1);
-		for (int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i] + " ");
-		}
+		printElementsOfArray();
 	}
 }
