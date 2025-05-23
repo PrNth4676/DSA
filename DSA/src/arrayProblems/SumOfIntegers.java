@@ -241,7 +241,7 @@ public class SumOfIntegers {
 		int[] inputArray = { 5, 8, 3, 10, 22 };
 		System.out.format("Sum is : %s%n", integers.returnSumOfValues(inputArray));
 		System.out.println("Value is : " + integers.returnElementPresent(inputArray, 3));
-		System.out.format("Value present is %s%n", integers.noOfElementsPresent(inputArray, 21));
+		System.out.format("Value present is at %s%n", integers.noOfElementsPresent(inputArray, 21));
 		integers.returnTheElementsPresent(inputArray, 22);
 		integers.printElementsInAlternate(inputArray);
 		int[] inputArrays = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
