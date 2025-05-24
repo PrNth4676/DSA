@@ -53,6 +53,7 @@ public class ArrayQuestions {
 			System.out.print(i + " ");
 		}
 	}
+	
 
 	public static void main(String[] args) {
 		findRollNumber(20);
