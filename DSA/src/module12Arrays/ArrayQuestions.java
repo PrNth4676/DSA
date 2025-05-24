@@ -41,14 +41,65 @@ public class ArrayQuestions {
 			lastIndex--;
 		}
 		// It can also be written using while loop
-//		while (firstIndex <= lastIndex) {
-//			temp = arr[lastIndex];
-//			arr[lastIndex] = arr[firstIndex];
-//			arr[firstIndex] = temp;
-//			firstIndex++;
-//			lastIndex--;
-//		}
+		// while (firstIndex <= lastIndex) {
+		// temp = arr[lastIndex];
+		// arr[lastIndex] = arr[firstIndex];
+		// arr[firstIndex] = temp;
+		// firstIndex++;
+		// lastIndex--;
+		// }
 		System.out.println();
+		for (int i : arr) {
+			System.out.print(i + " ");
+		}
+	}
+
+	/**
+	 * @PrNth4676
+	 * @ Summary : Rotate an array using an extra array
+	 */
+	public static void rotateAnArray(int steps) {
+		int len = arr.length;
+		steps = steps % len;
+		int lastIndex = len - steps;
+		int[] rotatedArr = new int[arr.length];
+		int index = 0;
+		int firstIndex = 0;
+		while (lastIndex < len) {
+			rotatedArr[index] = arr[lastIndex];
+			index++;
+			lastIndex++;
+		}
+		while (index < len) {
+			rotatedArr[index] = arr[firstIndex];
+			index++;
+			firstIndex++;
+		}
+		for (int i : rotatedArr) {
+			System.out.print(i + " ");
+		}
+	}
+
+	public static void reverse(int[] arr, int firstIndex, int lastIndex) {
+		while (firstIndex <= lastIndex) {
+			int temp = arr[firstIndex];
+			arr[firstIndex] = arr[lastIndex];
+			arr[lastIndex] = temp;
+			firstIndex++;
+			lastIndex--;
+		}
+	}
+
+	/**
+	 * @PrNth4676
+	 * @ Summary : Rotate the same array
+	 */
+	public static void rotateTheSameArray(int steps) {
+		int len = arr.length;
+		steps = steps % len;
+		reverse(arr, 0, (len - steps - 1));
+		reverse(arr, (len - steps), (len - 1));
+		reverse(arr, 0, (len - 1));
 		for (int i : arr) {
 			System.out.print(i + " ");
 		}
@@ -58,5 +109,6 @@ public class ArrayQuestions {
 		findRollNumber(20);
 		twoSum(50);
 		reverseArray();
+		rotateAnArray(5);
 	}
 }
