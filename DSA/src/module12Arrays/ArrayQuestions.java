@@ -53,11 +53,9 @@ public class ArrayQuestions {
 			System.out.print(i + " ");
 		}
 	}
-	
 
 	/**
-	 * @PrNth4676
-	 * @ Summary : Rotate an array using an extra array
+	 * @PrNth4676 @ Summary : Rotate an array using an extra array
 	 */
 	public static void rotateAnArray(int steps) {
 		int len = arr.length;
@@ -92,8 +90,7 @@ public class ArrayQuestions {
 	}
 
 	/**
-	 * @PrNth4676
-	 * @ Summary : Rotate the same array
+	 * @PrNth4676 @ Summary : Rotate the same array
 	 */
 	public static void rotateTheSameArray(int steps) {
 		int len = arr.length;
@@ -106,10 +103,52 @@ public class ArrayQuestions {
 		}
 	}
 
+	public static int[] sortingZeroOnesArray(int[] arr) {
+		int n = arr.length;
+		int noOfZeroes = 0;
+		for (int i = 0; i < n; ++i) {
+			if (arr[i] == 0)
+				noOfZeroes++;
+		}
+		for (int j = 0; j < n; ++j) {
+			if (j < noOfZeroes)
+				arr[j] = 0;
+			else
+				arr[j] = 1;
+		}
+		return arr;
+	}
+
+	public static int[] sortingZeroOnesArrayUsingTwoPointers(int[] arr) {
+		int n = arr.length;
+		int zero = 0;
+		int one = n - 1;
+		while (zero < one) {
+			if (arr[zero] == 0)
+				zero++;
+			else if (arr[one] == 1)
+				one--;
+			else if (arr[zero] == 1 && arr[one] == 0) {
+				arr[zero] = 0;
+				arr[one] = 1;
+				zero++;
+				one--;
+			}
+		}
+		return arr;
+	}
+
 	public static void main(String[] args) {
 		findRollNumber(20);
-		twoSum(50);
-		reverseArray();
-		rotateAnArray(5);
+//		twoSum(50);
+//		reverseArray();
+//		rotateAnArray(5);
+//		rotateTheSameArray(5);
+//		int[] arr = { 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1 };
+		int[] arr = { 0, 0, 0, 1, 1, 1 };
+		int[] result = sortingZeroOnesArrayUsingTwoPointers(arr);
+		for (int i : result) {
+			System.out.print(i + " ");
+		}
 	}
 }
