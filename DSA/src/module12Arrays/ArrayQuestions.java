@@ -138,6 +138,51 @@ public class ArrayQuestions {
 		return arr;
 	}
 
+	public static int[] sortColors(int[] arr) {
+		int noz = 0, noo = 0;
+		for (int i = 0; i < arr.length; ++i) {
+			if (arr[i] == 0)
+				noz++;
+			else if (arr[i] == 1)
+				noo++;
+		}
+		for (int i = 0; i < arr.length; ++i) {
+			if (i < noz)
+				arr[i] = 0;
+			else if (i < (noz + noo))
+				arr[i] = 1;
+			else
+				arr[i] = 2;
+		}
+		return arr;
+	}
+
+	public static void swap(int[] arr, int a, int b) {
+		int temp = arr[a];
+		arr[a] = arr[b];
+		arr[b] = temp;
+
+	}
+
+	// Solved using Three-pointer approach
+	public static int[] sortColorsUsingDutchFlag(int[] arr) {
+		int n = arr.length;
+		int low = 0, mid = 0, high = n - 1;
+		while (mid <= high) {
+			if (arr[mid] == 0) {
+				swap(arr, mid, low);
+				low++;
+				mid++;
+			} else if (arr[mid] == 1)
+				mid++;
+			else {
+				swap(arr, mid, high);
+				high--;
+			}
+		}
+		return arr;
+	}
+
 	public static void main(String[] args) {
 		findRollNumber(20);
 //		twoSum(50);
@@ -145,8 +190,11 @@ public class ArrayQuestions {
 //		rotateAnArray(5);
 //		rotateTheSameArray(5);
 //		int[] arr = { 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1 };
-		int[] arr = { 0, 0, 0, 1, 1, 1 };
-		int[] result = sortingZeroOnesArrayUsingTwoPointers(arr);
+//		int[] arr = { 0, 0, 0, 1, 1, 1 };
+//		int[] result = sortingZeroOnesArrayUsingTwoPointers(arr);
+		int[] arr = { 2, 1, 1, 0, 0, 0, 1, 2, 1, 0, 0, 2, 0, 1 };
+//		int[] result = sortColors(arr);
+		int[] result = sortColorsUsingDutchFlag(arr);
 		for (int i : result) {
 			System.out.print(i + " ");
 		}
