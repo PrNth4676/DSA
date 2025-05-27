@@ -183,6 +183,39 @@ public class ArrayQuestions {
 		return arr;
 	}
 
+	public static int[] mergeSortedArray(int[] a, int[] b) {
+		int[] c = new int[a.length + b.length];
+		int i = 0, j = 0, k = 0;
+		//Merging
+		while (i < a.length && j < b.length) {
+			if (a[i] <= b[j]) {
+				c[k] = a[i];
+				i++;
+			} else {
+				c[k] = b[j];
+				j++;
+			}
+			k++;
+		}
+		// When i reached the last of array 'a'
+		if (i == a.length) {
+			while (j < b.length) {
+				c[k] = b[j];
+				j++;
+				k++;
+			}
+		}
+		// When j reached the last of array 'b'
+		else if (j == b.length) {
+			while (i < a.length) {
+				c[k] = a[i];
+				i++;
+				k++;
+			}
+		}
+		return c;
+	}
+
 	public static void main(String[] args) {
 		findRollNumber(20);
 //		twoSum(50);
@@ -192,10 +225,16 @@ public class ArrayQuestions {
 //		int[] arr = { 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1 };
 //		int[] arr = { 0, 0, 0, 1, 1, 1 };
 //		int[] result = sortingZeroOnesArrayUsingTwoPointers(arr);
-		int[] arr = { 2, 1, 1, 0, 0, 0, 1, 2, 1, 0, 0, 2, 0, 1 };
+//		int[] arr = { 2, 1, 1, 0, 0, 0, 1, 2, 1, 0, 0, 2, 0, 1 };
 //		int[] result = sortColors(arr);
-		int[] result = sortColorsUsingDutchFlag(arr);
-		for (int i : result) {
+//		int[] result = sortColorsUsingDutchFlag(arr);
+//		for (int i : result) {
+//			System.out.print(i + " ");
+//		}
+		int a[] = { 11, 33, 42, 71, 76 };
+		int b[] = { 26, 54, 69, 81, 99, 101 };
+		int c[] = mergeSortedArray(a, b);
+		for (int i : c) {
 			System.out.print(i + " ");
 		}
 	}
