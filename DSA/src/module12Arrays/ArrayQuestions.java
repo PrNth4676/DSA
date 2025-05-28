@@ -186,7 +186,7 @@ public class ArrayQuestions {
 	public static int[] mergeSortedArray(int[] a, int[] b) {
 		int[] c = new int[a.length + b.length];
 		int i = 0, j = 0, k = 0;
-		//Merging
+		// Merging
 		while (i < a.length && j < b.length) {
 			if (a[i] <= b[j]) {
 				c[k] = a[i];
@@ -197,20 +197,103 @@ public class ArrayQuestions {
 			}
 			k++;
 		}
-		// When i reached the last of array 'a'
+		// Copy the remaining elements when i reaches the end of array 'a'
 		if (i == a.length) {
-			while (j < b.length) {
+			while (j != b.length) {
 				c[k] = b[j];
 				j++;
 				k++;
 			}
 		}
-		// When j reached the last of array 'b'
+		// Copy the remaining elements when j reaches the end of array 'b'
 		else if (j == b.length) {
-			while (i < a.length) {
+			while (i != a.length) {
 				c[k] = a[i];
 				i++;
 				k++;
+			}
+		}
+		return c;
+	}
+
+	public static int[] mergeSortedArrayInReverse(int[] a, int[] b) {
+		int[] c = new int[a.length + b.length];
+		int i = (a.length - 1), j = (b.length - 1), k = (c.length - 1);
+		// Merging
+		while (i >= 0 && j >= 0) {
+			if (b[j] >= a[i]) {
+				c[k] = b[j];
+				j--;
+			} else {
+				c[k] = a[i];
+				i--;
+			}
+			k--;
+		}
+		// When i reached the first of array 'a'
+		if (i < 0) {
+			while (j >= 0) {
+				c[k] = b[j];
+				j--;
+				k--;
+			}
+		}
+		// When j reached the last of array 'b'
+		else if (j < 0) {
+			while (i >= 0) {
+				c[k] = a[i];
+				i--;
+				k--;
+			}
+		}
+		return c;
+	}
+
+	public static int[] mergeSortedArrayInLeetCode(int[] a, int[] b) {
+		int[] c = new int[6];
+		int i = 0, j = 0, k = 0;
+		// Merging
+		if (a.length != 0 && b.length != 0) {
+			while (a[i] != 0 && b[j] != 0) {
+				if ((a[i] != 0) && (a[i] <= b[j])) {
+					c[k] = a[i];
+					i++;
+					k++;
+				} else if ((b[j] != 0) && (a[i] >= b[j])) {
+					c[k] = b[j];
+					j++;
+					k++;
+				}
+			}
+			// Copy the remaining elements when i reaches the end of array 'a'
+			if (a[i] == 0) {
+				while (j != b.length) {
+					c[k] = b[j];
+					j++;
+					k++;
+				}
+			}
+			// Copy the remaining elements when j reaches the end of array 'b'
+			else if (b[j] == 0) {
+				while (i != a.length) {
+					c[k] = a[i];
+					i++;
+					k++;
+				}
+			}
+		} else {
+			if (a.length == 0) {
+				while (j < b.length) {
+					c[k] = b[j];
+					j++;
+					k++;
+				}
+			} else if (b.length == 0) {
+				while (i < a.length) {
+					c[k] = a[i];
+					i++;
+					k++;
+				}
 			}
 		}
 		return c;
@@ -231,9 +314,13 @@ public class ArrayQuestions {
 //		for (int i : result) {
 //			System.out.print(i + " ");
 //		}
-		int a[] = { 11, 33, 42, 71, 76 };
-		int b[] = { 26, 54, 69, 81, 99, 101 };
-		int c[] = mergeSortedArray(a, b);
+//		int a[] = { 11, 33, 44, 54, 79, 91, 100 };
+//		int b[] = { 26, 54, 69, 80, 90 };
+//		int c[] = mergeSortedArrayInReverse(a, b);
+//		int c[] = mergeSortedArray(a, b);
+		int a[] = { 1, 2, 3, 0, 0, 0 };
+		int b[] = { 2, 5, 6 };
+		int c[] = mergeSortedArrayInLeetCode(a, b);
 		for (int i : c) {
 			System.out.print(i + " ");
 		}
