@@ -299,6 +299,31 @@ public class ArrayQuestions {
 		return c;
 	}
 
+	public static int[] nextGreatestElement(int[] arr) {
+		int n = arr.length;
+		int[] ans = new int[n];
+		// O(n^2) : Brute-Force Approach
+//		for (int i = 0; i < n - 1; ++i) {
+//			int max = arr[i+1];
+//			for (int j = (i + 1); j < n; ++j) {
+//				if (arr[j] > max) {
+//					max = arr[j];
+//				}
+//			}
+//			ans[i] = max;
+//		}
+		// O(n) : Optimized Approach
+		int nge = arr[n - 1];
+		for (int i = n - 2; i >= 0; --i) {
+			ans[i] = nge;
+			if (arr[i] > nge) {
+				nge = arr[i]; // Find the max
+			}
+		}
+		ans[n - 1] = -1;
+		return ans;
+	}
+
 	public static void main(String[] args) {
 		findRollNumber(20);
 //		twoSum(50);
@@ -314,14 +339,18 @@ public class ArrayQuestions {
 //		for (int i : result) {
 //			System.out.print(i + " ");
 //		}
-//		int a[] = { 11, 33, 44, 54, 79, 91, 100 };
+		int a[] = { 11, 33, 100, 54, 79, 91, 1 };
 //		int b[] = { 26, 54, 69, 80, 90 };
 //		int c[] = mergeSortedArrayInReverse(a, b);
 //		int c[] = mergeSortedArray(a, b);
-		int a[] = { 1, 2, 3, 0, 0, 0 };
-		int b[] = { 2, 5, 6 };
-		int c[] = mergeSortedArrayInLeetCode(a, b);
-		for (int i : c) {
+//		int a[] = { 1, 2, 3, 0, 0, 0 };
+//		int b[] = { 2, 5, 6 };
+//		int c[] = mergeSortedArrayInLeetCode(a, b);
+//		for (int i : c) {
+//			System.out.print(i + " ");
+//		}
+		int[] result = nextGreatestElement(a);
+		for (int i : result) {
 			System.out.print(i + " ");
 		}
 	}
