@@ -324,6 +324,113 @@ public class ArrayQuestions {
 		return ans;
 	}
 
+	// Assignment Questions
+
+	// Q1
+	public static int findProductOfElements(int[] arr) {
+		int result = 1;
+		for (int i = 0; i < arr.length; ++i) {
+			result *= arr[i];
+		}
+		return result;
+	}
+
+	// Q2
+	public static int findSecondLargestElement(int[] arr) {
+		int max = arr[0];
+		int secondMax = arr[0];
+		for (int i = 1; i < arr.length; ++i) {
+			if (arr[i] > max) {
+				max = arr[i];
+			}
+		}
+		for (int i = 1; i < arr.length; ++i) {
+			if (arr[i] != max) { // Filters the max element which is found out in the above iteration
+				if (arr[i] > secondMax) {
+					secondMax = arr[i];
+				}
+			}
+		}
+		return secondMax;
+	}
+
+	// Q3
+	public static int findSmallestElement(int[] arr) {
+		int min = arr[0];
+		for (int i = 1; i < arr.length; ++i) {
+			if (arr[i] < min) {
+				min = arr[i];
+			}
+		}
+		return min;
+	}
+
+	// Q4 - Returns the first duplicate element encountered
+	public static int findDuplicateElement(int[] arr) {
+		int i = 0;
+		int j = arr.length - 1;
+		int result = 0;
+		while (i < j) {
+			if (arr[i] == arr[j]) {
+				result = arr[i];
+				break;
+			}
+			i++;
+			j--;
+		}
+		return result;
+	}
+
+	// Q5
+	public static int findSmallestMissingPositiveElement(int[] arr) {
+		int l = arr.length;
+		int result = 0;
+		for (int i = 0; i < l - 1; ++i) {
+			if (arr[i + 1] - arr[i] > 1) {
+				result = arr[i] + 1;
+			}
+		}
+		return result;
+	}
+
+	// Q6
+	public static int countStrictlyGreater(int[] arr, int element) {
+		int count = 0;
+		for (int i = 0; i < arr.length; ++i) {
+			if (arr[i] >= element) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	// Q7
+	public static int findThreeLargestElement(int[] arr) {
+		int max = arr[0];
+		int secondMax = arr[0];
+		int thirdMax = arr[0];
+		for (int i = 1; i < arr.length; ++i) {
+			if (arr[i] > max) {
+				max = arr[i];
+			}
+		}
+		for (int i = 1; i < arr.length; ++i) {
+			if (arr[i] != max) { // Filters the max element which is found out in the above iteration
+				if (arr[i] > secondMax) {
+					secondMax = arr[i];
+				}
+			}
+		}
+		for (int i = 1; i < arr.length; ++i) {
+			if (arr[i] != secondMax && arr[i] != max) {
+				if (arr[i] > thirdMax) {
+					thirdMax = arr[i];
+				}
+			}
+		}
+		return thirdMax;
+	}
+
 	public static void main(String[] args) {
 		findRollNumber(20);
 //		twoSum(50);
@@ -339,7 +446,7 @@ public class ArrayQuestions {
 //		for (int i : result) {
 //			System.out.print(i + " ");
 //		}
-		int a[] = { 11, 33, 100, 54, 79, 91, 1 };
+//		int a[] = { 11, 33, 100, 54, 79, 33, 1 };
 //		int b[] = { 26, 54, 69, 80, 90 };
 //		int c[] = mergeSortedArrayInReverse(a, b);
 //		int c[] = mergeSortedArray(a, b);
@@ -349,9 +456,18 @@ public class ArrayQuestions {
 //		for (int i : c) {
 //			System.out.print(i + " ");
 //		}
-		int[] result = nextGreatestElement(a);
-		for (int i : result) {
-			System.out.print(i + " ");
-		}
+//		int[] result = nextGreatestElement(a);
+//		for (int i : result) {
+//			System.out.print(i + " ");
+//		}
+//		System.out.println(findProductOfElements(a));
+//		System.out.println(findSecondLargestElement(a));
+//		System.out.println(findSmallestElement(a));
+//		System.out.println(findDuplicateElement(a));
+		int s[] = { 1, 2, 3, 4, 5, 6 };
+//		System.out.println(findSmallestMissingPositiveElement(s));
+//		System.out.println(countStrictlyGreater(s, 2));
+		System.out.println(findThreeLargestElement(s));
+//		System.out.println(findSecondLargestElement(s));
 	}
 }
