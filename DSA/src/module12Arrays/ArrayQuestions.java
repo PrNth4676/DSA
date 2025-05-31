@@ -431,6 +431,53 @@ public class ArrayQuestions {
 		return thirdMax;
 	}
 
+	// Q8
+	public static boolean isArraySorted(int[] arr) {
+		for (int i = 1; i < arr.length; ++i) {
+			if (arr[i - 1] > arr[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	// Q9
+	public static int findDiffBetweenSum(int[] arr) {
+		int sumOfEven = 0, sumOfOdd = 0;
+		for (int i = 0; i < arr.length; ++i) {
+			if (i % 2 == 0) {
+				sumOfEven += arr[i];
+			} else {
+				sumOfOdd += arr[i];
+			}
+		}
+		return Math.abs(sumOfOdd - sumOfEven);
+	}
+
+	// Q10
+	public static int[] updateArray(int[] arr) {
+		int[] result = new int[arr.length];
+		for (int i = 0; i < arr.length; ++i) {
+			if (i % 2 == 0) {
+				result[i] = arr[i] + 10;
+			} else {
+				result[i] = 2 * arr[i];
+			}
+		}
+		return result;
+	}
+
+	// Q11
+	public static int uniqueNumberInArray(int[] arr) {
+		int unique = 0;
+		for (int i = 1; i < arr.length; ++i) {
+			if (arr[i - 1] != arr[i]) {
+				unique = arr[i - 1];
+			}
+		}
+		return unique;
+	}
+
 	public static void main(String[] args) {
 		findRollNumber(20);
 //		twoSum(50);
@@ -464,10 +511,18 @@ public class ArrayQuestions {
 //		System.out.println(findSecondLargestElement(a));
 //		System.out.println(findSmallestElement(a));
 //		System.out.println(findDuplicateElement(a));
-		int s[] = { 1, 2, 3, 4, 5, 6 };
+//		int s[] = { 1, 2, 3, 4, 5, 6 };
 //		System.out.println(findSmallestMissingPositiveElement(s));
 //		System.out.println(countStrictlyGreater(s, 2));
-		System.out.println(findThreeLargestElement(s));
+//		System.out.println(findThreeLargestElement(s));
 //		System.out.println(findSecondLargestElement(s));
+//		System.out.println(isArraySorted(s));
+//		System.out.println(findDiffBetweenSum(s));
+//		int[] result = updateArray(s);
+//		for (int i : result) {
+//			System.out.print(i + " ");
+//		}
+		int a[] = { 1, 1, 2, 2, 3, 3, 4, 5, 5 };
+		System.out.println(uniqueNumberInArray(a));
 	}
 }
