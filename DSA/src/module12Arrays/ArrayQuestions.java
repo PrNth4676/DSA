@@ -478,6 +478,28 @@ public class ArrayQuestions {
 		return unique;
 	}
 
+	// Q12
+	public static boolean isArrayPalindrome(int[] arr) {
+		int i = 0;
+		int j = arr.length - 1;
+		int count = 0;
+		while (i < j) {
+			if (arr[i] != arr[j]) {
+				break;
+			} else {
+				count++;
+			}
+			i++;
+			j--;
+		}
+		if (count > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+
 	public static void main(String[] args) {
 		findRollNumber(20);
 //		twoSum(50);
@@ -522,7 +544,9 @@ public class ArrayQuestions {
 //		for (int i : result) {
 //			System.out.print(i + " ");
 //		}
-		int a[] = { 1, 1, 2, 2, 3, 3, 4, 5, 5 };
-		System.out.println(uniqueNumberInArray(a));
+//		int a[] = { 1, 1, 2, 2, 3, 3, 4, 5, 5 };
+//		System.out.println(uniqueNumberInArray(a));
+		int a[] = { 1, 2, 3, 4, 3, 2, 1 };
+		System.out.println(isArrayPalindrome(a));
 	}
 }
