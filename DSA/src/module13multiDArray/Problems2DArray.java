@@ -1,6 +1,5 @@
 package module13multiDArray;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Problems2DArray {
@@ -115,21 +114,70 @@ public class Problems2DArray {
 				transpose[i][j] = arr[j][i];
 			}
 		}
-		//Print the Elements after Storing
+		// Print the Elements after Storing
 		printElementsOfMatrix(transpose);
+	}
+
+	/**
+	 * @Description: Converts the Square Matrix to its Transpose in the same matrix
+	 **/
+	public static void convertMatrixToTranspose(int[][] arr) {
+		for (int i = 0; i < arr.length; ++i) { // Rows
+			for (int j = 0; j < i; ++j) { // Similar to Left-Triangle
+				int temp = arr[i][j];
+				arr[i][j] = arr[j][i];
+				arr[j][i] = temp;
+			}
+		}
+		// Print the Matrix
+		printElementsOfMatrix(arr);
+	}
+
+	/**
+	 * @Description: Rotates the Matrix by 90 degrees clock-wise
+	 **/
+	public static void rotateMatrix(int[][] arr) {
+
+		// TRANSPOSE
+		for (int i = 0; i < arr.length; ++i) { // Rows
+			for (int j = 0; j < i; ++j) { // Similar to Left-Triangle
+				int temp = arr[i][j];
+				arr[i][j] = arr[j][i];
+				arr[j][i] = temp;
+			}
+		}
+
+		// REVERSE for each row
+		for (int i = 0; i < arr.length; ++i) { // Rows
+			// We are reversing an 1D array
+			// SWAP between arr[i][firstIndex] and arr[i][lastIndex]
+			int f = 0;
+			int l = arr[i].length - 1; // Last Index
+			while(f<=l) {
+				int temp = arr[i][f];
+				arr[i][f] = arr[i][l];
+				arr[i][l] = temp;
+				f++;
+				l--;
+			}
+		}
+
+		// Print the Matrix
+		printElementsOfMatrix(arr);
 	}
 
 	public static void main(String[] args) {
 //		storeValuesOfStudents();
-		int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 } };
-		System.out.println("Largest Element in the Array is : " + findMaximumElementInArray(arr));
+		int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+//		System.out.println("Largest Element in the Array is : " + findMaximumElementInArray(arr));
 //		System.out.println("Sum of the Elements in the Array is : " + findSumOfArray(arr));
 //		System.out.println("Product of the Elements in the Array is : " + findProductOfArray(arr));
 //		int[][] b = { { 9, 3, 7 }, { 8, 6, 5 }, { 2, 4, 1 } };
 //		int[][] result = addTwoMatrices(arr, b);
 //		printElementsOfMatrix(result);
 //		printTransposeOfMatrix(arr);
-		storeTransposeOfMatrix(arr);
+//		storeTransposeOfMatrix(arr);
+		rotateMatrix(arr);
 	}
 
 }
