@@ -153,7 +153,7 @@ public class Problems2DArray {
 			// SWAP between arr[i][firstIndex] and arr[i][lastIndex]
 			int f = 0;
 			int l = arr[i].length - 1; // Last Index
-			while(f<=l) {
+			while (f <= l) {
 				int temp = arr[i][f];
 				arr[i][f] = arr[i][l];
 				arr[i][l] = temp;
@@ -166,9 +166,24 @@ public class Problems2DArray {
 		printElementsOfMatrix(arr);
 	}
 
+	public static void printMatrixInWaveForm(int[][] arr) {
+		for (int i = 0; i < arr.length; ++i) { // ROWS
+			if (i % 2 == 0) { // Condition for COLUMNS
+				for (int j = 0; j < arr[i].length; ++j) {
+					System.out.print(arr[i][j] + " ");
+				}
+			} else {
+				for (int j = (arr[i].length - 1); j >= 0; --j) {
+					System.out.print(arr[i][j] + " ");
+				}
+			}
+			System.out.println();
+		}
+	}
+
 	public static void main(String[] args) {
 //		storeValuesOfStudents();
-		int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+		int[][] arr = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
 //		System.out.println("Largest Element in the Array is : " + findMaximumElementInArray(arr));
 //		System.out.println("Sum of the Elements in the Array is : " + findSumOfArray(arr));
 //		System.out.println("Product of the Elements in the Array is : " + findProductOfArray(arr));
@@ -177,7 +192,8 @@ public class Problems2DArray {
 //		printElementsOfMatrix(result);
 //		printTransposeOfMatrix(arr);
 //		storeTransposeOfMatrix(arr);
-		rotateMatrix(arr);
+//		rotateMatrix(arr);
+		printMatrixInWaveForm(arr);
 	}
 
 }
