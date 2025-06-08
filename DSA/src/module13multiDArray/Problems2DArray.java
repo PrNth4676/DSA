@@ -166,20 +166,6 @@ public class Problems2DArray {
 		printElementsOfMatrix(arr);
 	}
 
-	public static void printMatrixInWaveForm(int[][] arr) {
-		for (int i = 0; i < arr.length; ++i) { // ROWS
-			if (i % 2 == 0) { // Condition for COLUMNS
-				for (int j = 0; j < arr[i].length; ++j) {
-					System.out.print(arr[i][j] + " ");
-				}
-			} else {
-				for (int j = (arr[i].length - 1); j >= 0; --j) {
-					System.out.print(arr[i][j] + " ");
-				}
-			}
-			System.out.println();
-		}
-	}
 
 	public static void main(String[] args) {
 //		storeValuesOfStudents();
@@ -190,10 +176,9 @@ public class Problems2DArray {
 //		int[][] b = { { 9, 3, 7 }, { 8, 6, 5 }, { 2, 4, 1 } };
 //		int[][] result = addTwoMatrices(arr, b);
 //		printElementsOfMatrix(result);
-//		printTransposeOfMatrix(arr);
+		printTransposeOfMatrix(arr);
 //		storeTransposeOfMatrix(arr);
 //		rotateMatrix(arr);
-		printMatrixInWaveForm(arr);
 	}
 
 }
