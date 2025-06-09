@@ -94,14 +94,54 @@ public class MatrixWaveforms {
 		}
 	}
 
+	public static int[][] generateSpiralMatrix(int n) {
+		int[][] results = new int[n][n];
+		int values = 1;
+		int minRow = 0, maxRow = n - 1, minCol = 0, maxCol = n - 1;
+		while (minRow <= maxRow && minCol <= maxCol) { // Terminating Condition
+			// Left to Right
+			for (int j = minCol; j <= maxCol; ++j) {
+				results[minRow][j] = values;
+				values++;
+			}
+			minRow++;
+			// Top to Bottom
+			if (minRow > maxRow || minCol > maxCol)
+				break;
+			for (int i = minRow; i <= maxRow; ++i) {
+				results[i][maxCol] = values;
+				values++;
+			}
+			maxCol--;
+			// Right to Left
+			if (minRow > maxRow || minCol > maxCol)
+				break;
+			for (int j = maxCol; j >= minCol; --j) {
+				results[maxRow][j] = values;
+				values++;
+			}
+			maxRow--;
+			// Bottom to Top
+			if (minRow > maxRow || minCol > maxCol)
+				break;
+			for (int i = maxRow; i >= minRow; --i) {
+				results[i][minCol] = values;
+				values++;
+			}
+			minCol++;
+		}
+		return results;
+	}
+
 	public static void main(String[] args) {
-		int[][] arr = { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
+		int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 		Problems2DArray.printElementsOfMatrix(arr);
 //		printMatrixInWaveForm(arr);
 //		printMatrixInWaveFormReverse(arr);
 //		printTransposeMatrixInWaveForm(arr);
 //		printTransposeMatrixInWaveFormReverse(arr);
-		printMatrixInSpiral(arr);
+//		printMatrixInSpiral(arr);
+//		generateSpiralMatrix(1);
 	}
 
 }
