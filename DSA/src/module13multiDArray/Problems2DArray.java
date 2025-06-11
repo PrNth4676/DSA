@@ -166,6 +166,23 @@ public class Problems2DArray {
 		printElementsOfMatrix(arr);
 	}
 
+	public static int[][] multiplyMatrices(int[][] a, int[][] b) {
+		int[][] product = new int[a.length][b[0].length];
+		int sum = 0;
+		if (a[0].length != b.length) {
+			System.out.println("Multiplication Not Possible");
+		} else {
+			for (int i = 0; i < product.length; ++i) { // ROWS
+				for (int j = 0; j < product[i].length; ++j) { // COLUMNS
+					for (int k = 0; k < a[i].length; ++k) { // To fetch the length of rows or columns of two matrices
+						sum += (a[i][k] * b[k][j]);
+					}
+					product[i][j] = sum;
+				}
+			}
+		}
+		return product;
+	}
 
 	public static void main(String[] args) {
 //		storeValuesOfStudents();
@@ -176,9 +193,12 @@ public class Problems2DArray {
 //		int[][] b = { { 9, 3, 7 }, { 8, 6, 5 }, { 2, 4, 1 } };
 //		int[][] result = addTwoMatrices(arr, b);
 //		printElementsOfMatrix(result);
-		printTransposeOfMatrix(arr);
+//		printTransposeOfMatrix(arr);
 //		storeTransposeOfMatrix(arr);
 //		rotateMatrix(arr);
+		int[][] b = { { 1 }, { 2 }, { 3 }, { 4 } };
+		int[][] p = multiplyMatrices(arr, b);
+		printElementsOfMatrix(p);
 	}
 
 }

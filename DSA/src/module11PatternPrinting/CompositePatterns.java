@@ -181,8 +181,8 @@ public class CompositePatterns {
 			}
 		}
 	}
-	
-	//TOUGHEST Question
+
+	// TOUGHEST Question
 	public static void numberSpiral(int number) {
 		for (int i = 1; i <= (2 * number - 1); ++i) {
 			for (int j = 1; j <= (2 * number - 1); ++j) {
@@ -202,7 +202,8 @@ public class CompositePatterns {
 //		numberRowsTriangleVerticallyLeftFlipped(7);
 //		starRhombus(5);
 //		numberRhombus(10);
-		starTriangle(15);
+//		starTriangle(15);
+//		numberPalindromePyramid(2);
 //		starTriangleAlternate(5);
 //		starTriangleVerticallyFlipped(5);
 //		starDiamond(3);

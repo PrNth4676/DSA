@@ -11,7 +11,7 @@ public class ArrayList2DBasics {
 		List<List<Integer>> array2DList = new ArrayList<>(); // This will create an empty ArrayList where each element
 																// is an ArrayList
 		int size = 4;
-		List<List<Integer>> sizeArray2DList = new ArrayList<>(size); // This will create an empty ArrayList of size 4
+//		List<List<Integer>> sizeArray2DList = new ArrayList<>(size); // This will create an empty ArrayList of size 4
 																		// where each element is an ArrayList
 		int arraySize = 3;
 		List<List<Integer>> sizeArray2DList2 = new ArrayList<>(size);
