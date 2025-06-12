@@ -187,7 +187,7 @@ public class Problems2DArray {
 	public static void main(String[] args) {
 //		storeValuesOfStudents();
 		int[][] arr = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
-//		System.out.println("Largest Element in the Array is : " + findMaximumElementInArray(arr));
+		System.out.println("Largest Element in the Array is : " + findMaximumElementInArray(arr));
 //		System.out.println("Sum of the Elements in the Array is : " + findSumOfArray(arr));
 //		System.out.println("Product of the Elements in the Array is : " + findProductOfArray(arr));
 //		int[][] b = { { 9, 3, 7 }, { 8, 6, 5 }, { 2, 4, 1 } };
