@@ -166,6 +166,7 @@ public class Problems2DArray {
 		printElementsOfMatrix(arr);
 	}
 
+	// Multiple Matrices
 	public static int[][] multiplyMatrices(int[][] a, int[][] b) {
 		int[][] product = new int[a.length][b[0].length];
 		int sum = 0;
@@ -184,10 +185,56 @@ public class Problems2DArray {
 		return product;
 	}
 
+	// Flipping A Matrix
+	public static int flipMatrix(int[][] arr) {
+		int m = arr.length, n = arr[0].length;
+		for (int i = 0; i < m; ++i) {
+			if (arr[i][0] == 0) { // Check if the start of the row has 0, then flip it
+				// Flipping the row
+				for (int j = 0; j < n; ++j) {
+					if (arr[i][j] == 0)
+						arr[i][j] = 1;
+					else
+						arr[i][j] = 0;
+				}
+			}
+		}
+		for (int j = 1; j < n; ++j) {
+			int noOfZeros = 0, noOfOnes = 0;
+			for (int i = 0; i < m; ++i) {
+				// Check if the start of the column has 0, then flip it
+				if (arr[i][j] == 0)
+					noOfZeros++;
+				else
+					noOfOnes++;
+			}
+			if (noOfZeros > noOfOnes) {
+				// Flipping the Column
+				for (int i = 0; i < m; ++i) {
+					if (arr[i][j] == 0)
+						arr[i][j] = 1;
+					else
+						arr[i][j] = 0;
+				}
+			}
+		}
+		// Converting Binary to Decimal Value
+		int score = 0;
+		for (int i = 0; i < m; ++i) {
+			for (int j = n - 1; j >= 0; --j) {
+				score += (arr[i][j] * Math.pow(2, j));
+				System.out.print((arr[i][j] * Math.pow(2, j)) + " ");
+			}
+			System.out.println();
+		}
+		System.out.println(score);
+		return score;
+	}
+
 	public static void main(String[] args) {
 //		storeValuesOfStudents();
 		int[][] arr = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
-		System.out.println("Largest Element in the Array is : " + findMaximumElementInArray(arr));
+//		System.out.println("Largest Element in the Array is : " + findMaximumElementInArray(arr));
 //		System.out.println("Sum of the Elements in the Array is : " + findSumOfArray(arr));
 //		System.out.println("Product of the Elements in the Array is : " + findProductOfArray(arr));
 //		int[][] b = { { 9, 3, 7 }, { 8, 6, 5 }, { 2, 4, 1 } };
@@ -197,8 +244,11 @@ public class Problems2DArray {
 //		storeTransposeOfMatrix(arr);
 //		rotateMatrix(arr);
 		int[][] b = { { 1 }, { 2 }, { 3 }, { 4 } };
-		int[][] p = multiplyMatrices(arr, b);
-		printElementsOfMatrix(p);
+//		int[][] p = multiplyMatrices(arr, b);
+//		printElementsOfMatrix(p);
+//		int[][] binaryMatrix = { { 0, 0, 1, 1 }, { 1, 0, 1, 0 }, { 1, 1, 0, 0 } };
+		int[][] binaryMatrix = { { 0, 1 }, { 1, 1 } };
+		flipMatrix(binaryMatrix);
 	}
 
 }
