@@ -231,6 +231,27 @@ public class Problems2DArray {
 		return score;
 	}
 
+	// Search the element in a Sorted Matrix
+	public static boolean searchInMatrix(int[][] arr, int target) {
+		int rowLength = arr.length, colLength = arr[0].length;
+		int rowNum = 0, colNum = colLength - 1;
+		// rowNum < rowLength makes sure we travel to the down but not go out
+		// && colNum >=0 makes sure
+		// we don't go out from the matrix while travelling left
+		while (rowNum < rowLength && colNum >= 0) {
+			if (arr[rowNum][colNum] == target)
+				return true;
+			else if (arr[rowNum][colNum] > target) {
+				// Go Left
+				colNum--;
+			} else {
+				// Go Down
+				rowNum++;
+			}
+		}
+		return false;
+	}
+
 	public static void main(String[] args) {
 //		storeValuesOfStudents();
 		int[][] arr = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
@@ -243,12 +264,13 @@ public class Problems2DArray {
 //		printTransposeOfMatrix(arr);
 //		storeTransposeOfMatrix(arr);
 //		rotateMatrix(arr);
-		int[][] b = { { 1 }, { 2 }, { 3 }, { 4 } };
+//		int[][] b = { { 1 }, { 2 }, { 3 }, { 4 } };
 //		int[][] p = multiplyMatrices(arr, b);
 //		printElementsOfMatrix(p);
 //		int[][] binaryMatrix = { { 0, 0, 1, 1 }, { 1, 0, 1, 0 }, { 1, 1, 0, 0 } };
-		int[][] binaryMatrix = { { 0, 1 }, { 1, 1 } };
-		flipMatrix(binaryMatrix);
+//		int[][] binaryMatrix = { { 0, 1 }, { 1, 1 } };
+//		flipMatrix(binaryMatrix);
+		searchInMatrix(arr, 11);
 	}
 
 }
