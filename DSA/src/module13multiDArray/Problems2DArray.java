@@ -236,8 +236,7 @@ public class Problems2DArray {
 		int rowLength = arr.length, colLength = arr[0].length;
 		int rowNum = 0, colNum = colLength - 1;
 		// rowNum < rowLength makes sure we travel to the down but not go out
-		// && colNum >=0 makes sure
-		// we don't go out from the matrix while travelling left
+		// && colNum >=0 makes sure we don't go out from the matrix while going left
 		while (rowNum < rowLength && colNum >= 0) {
 			if (arr[rowNum][colNum] == target)
 				return true;
@@ -247,6 +246,27 @@ public class Problems2DArray {
 			} else {
 				// Go Down
 				rowNum++;
+			}
+		}
+		return false;
+	}
+
+	// Search the element in a Sorted Matrix
+	public static boolean searchInMatrixTwo(int[][] arr, int target) {
+		int rowLength = arr.length, colLength = arr[0].length;
+		int rowNum = rowLength - 1, colNum = 0;
+		// rowNum >= 0 makes sure we travel to the up but not go out
+		// && colNum < colLength makes sure we don't go out from the matrix while going
+		// right
+		while (rowNum >= 0 && colNum < colLength) {
+			if (arr[rowNum][colNum] == target)
+				return true;
+			else if (arr[rowNum][colNum] < target) {
+				// Go Right
+				colNum++;
+			} else {
+				// Go Up
+				rowNum--;
 			}
 		}
 		return false;
@@ -270,7 +290,7 @@ public class Problems2DArray {
 //		int[][] binaryMatrix = { { 0, 0, 1, 1 }, { 1, 0, 1, 0 }, { 1, 1, 0, 0 } };
 //		int[][] binaryMatrix = { { 0, 1 }, { 1, 1 } };
 //		flipMatrix(binaryMatrix);
-		searchInMatrix(arr, 11);
+//		searchInMatrix(arr, 11);
+		System.out.println(searchInMatrix(arr, 9));
 	}
-
 }
