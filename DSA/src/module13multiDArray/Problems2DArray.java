@@ -272,6 +272,44 @@ public class Problems2DArray {
 		return false;
 	}
 
+	// Solved it using the efficiency in Space
+	public static void setZeroesInMatrix(int[][] arr) {
+		int rowLength = arr.length;
+		int colLength = arr[0].length;
+		boolean[] rowCheck = new boolean[rowLength];
+		boolean[] colCheck = new boolean[colLength];
+		for (int i = 0; i < rowLength; ++i) {
+			for (int j = 0; j < colLength; ++j) {
+				if (arr[i][j] == 0) {
+					// Marking the particular row and column where we have to set 0
+					rowCheck[i] = true;
+					colCheck[j] = true;
+				}
+			}
+		}
+		// Set the Rows marked set as 'true' to 0
+		for (int i = 0; i < rowLength; ++i) {
+			if (rowCheck[i] == true) {
+				// Set the entire 'ith' row in the matrix to 0
+				// We can set it by traversing the column with the row associated
+				for (int j = 0; j < colLength; ++j) {
+					arr[i][j] = 0;
+				}
+			}
+		}
+
+		// Set the Columns marked set as 'true' to 0
+		for (int j = 0; j < colLength; ++j) {
+			if (colCheck[j] == true) {
+				// Set the entire 'jth' column in the matrix to 0
+				// We can set it by traversing the row with the column associated
+				for (int i = 0; i < rowLength; ++i) {
+					arr[i][j] = 0;
+				}
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 //		storeValuesOfStudents();
 		int[][] arr = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
