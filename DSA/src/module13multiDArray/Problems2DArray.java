@@ -310,10 +310,78 @@ public class Problems2DArray {
 		}
 	}
 
+	// Solved it using the even more efficiency in Space
+	public static int[][] setZeroesInMatrixEfficient(int[][] arr) {
+		int rowLength = arr.length;
+		int colLength = arr[0].length;
+		boolean zeroRow = false;
+		boolean zeroCol = false;
+
+		// Check the 0th row for any zero presence
+		for (int j = 0; j < colLength; ++j) { // We can check it by traversing column wise
+			if (arr[0][j] == 0) {
+				zeroRow = true; // Anywhere in the row it finds 0, then set it to True and get-out from it
+				break;
+			}
+		}
+
+		// Check the 0th column for any zero presence
+		for (int i = 0; i < rowLength; ++i) { // We can check it by traversing row wise
+			if (arr[i][0] == 0) {
+				zeroCol = true; // Anywhere in the column it finds 0, then set it to True and get-out from it
+				break;
+			}
+		}
+
+		// Traversing in the Sub-Matrix without 0th row and 0th column
+		for (int i = 1; i < rowLength; ++i) {
+			for (int j = 1; j < colLength; ++j) {
+				if (arr[i][j] == 0) { // If we find any where its 0
+					arr[i][0] = 0; // Mark the entire row as 0
+					arr[0][j] = 0; // Mark the entire column as 0
+				}
+			}
+		}
+		// Traversing for the row having '0'
+		for (int j = 1; j < colLength; ++j) { // Traversing Column-wise
+			if (arr[0][j] == 0) {
+				// Set the entire column to 0
+				for (int i = 1; i < rowLength; ++i) {
+					arr[i][j] = 0;
+				}
+			}
+		}
+
+		// Traversing for the column having '0'
+		for (int i = 1; i < rowLength; ++i) { // Traversing Row-wise
+			if (arr[i][0] == 0) {
+				// Set the entire row to 0
+				for (int j = 1; j < colLength; ++j) {
+					arr[i][j] = 0;
+				}
+			}
+		}
+
+		// Set the 0th row to '0'
+		if (zeroRow) {
+			for (int j = 0; j < colLength; ++j) { // We can check it by traversing column wise
+				arr[0][j] = 0; // Set the entire row to 0
+			}
+		}
+
+		// Set the 0th column to '0'
+		if (zeroCol) {
+			for (int i = 0; i < rowLength; ++i) { // We can check it by traversing row wise
+				arr[i][0] = 0; // Set the entire column to 0
+			}
+		}
+		return arr;
+	}
+
 	public static void main(String[] args) {
 //		storeValuesOfStudents();
 		int[][] arr = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
-//		System.out.println("Largest Element in the Array is : " + findMaximumElementInArray(arr));
+		System.out.println("Largest Element in the Array is : " + findMaximumElementInArray(arr));
 //		System.out.println("Sum of the Elements in the Array is : " + findSumOfArray(arr));
 //		System.out.println("Product of the Elements in the Array is : " + findProductOfArray(arr));
 //		int[][] b = { { 9, 3, 7 }, { 8, 6, 5 }, { 2, 4, 1 } };
@@ -329,6 +397,8 @@ public class Problems2DArray {
 //		int[][] binaryMatrix = { { 0, 1 }, { 1, 1 } };
 //		flipMatrix(binaryMatrix);
 //		searchInMatrix(arr, 11);
-		System.out.println(searchInMatrix(arr, 9));
+//		System.out.println(searchInMatrix(arr, 9));
+		int[][] matrix = { { 0, 1, 2, 0 }, { 3, 4, 5, 2 }, { 1, 3, 1, 5 } };
+		printElementsOfMatrix(setZeroesInMatrixEfficient(matrix));
 	}
 }
