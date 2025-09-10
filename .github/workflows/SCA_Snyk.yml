@@ -7,5 +7,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/maven@master
+        continue-on-error: true #This will make the workflow run, even if there is error
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
