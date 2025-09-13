@@ -3,6 +3,7 @@ on: push
 jobs:
   security:
     runs-on: ubuntu-latest
+    name: Run the SCA scan on the source code
     steps:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
