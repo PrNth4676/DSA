@@ -104,6 +104,26 @@ public class StringBasics {
 		}
 	}
 
+	public static void numberToStringConversion() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter a number : ");
+		int number = scanner.nextInt();
+		
+		String strNumber = ""; // implicit conversion
+		strNumber += number;
+		System.out.println("String value : " + strNumber);
+		
+		String str = Integer.toString(number); // explicit conversion
+		System.out.println("String value : " + str);
+		scanner.close();
+	}
+	
+	/** It returns the total number of digits in the given number **/
+	public static void returnTotalNoOfDigitsInString(int number) {
+		int count = Integer.toString(number).length();
+		System.out.println("Total number of digits in the string: " + count);
+	}
+	
 	public static void plusOperatorInString() {
 		String str1 = "Hello";
 //		String str2 = "World";
@@ -137,5 +157,8 @@ public class StringBasics {
 
 		printAllSubString("abcd");
 		plusOperatorInString();
+		
+//		numberToStringConversion();
+//		returnTotalNoOfDigitsInString(123456);
 	}
 }
