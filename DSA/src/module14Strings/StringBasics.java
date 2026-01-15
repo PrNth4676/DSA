@@ -124,6 +124,22 @@ public class StringBasics {
 		System.out.println("Total number of digits in the string: " + count);
 	}
 	
+	/** String Immutability **/
+	public static void stringImmutability() {
+		String str = "Hello";
+		str = str + " World"; // New string is created in the memory
+		System.out.println(str);
+//		str.charAt(0) = 'h'; // It will not change the original string and give compilation error
+//		str = "hello"; // New string is created in the memory with value "hello"
+		// Interning concept of String
+		String anotherStr = "Hello"; // It will point to the same memory location as of original "Hello" string
+		anotherStr = anotherStr + "Java"; // New string is created in the memory which is "HelloJava"
+		System.out.println(str);
+		System.out.println(anotherStr);
+		String newString = new String("Hello"); // It will create a new string in the memory which is different from original "Hello" string
+		System.out.println(newString);
+	}
+	
 	public static void plusOperatorInString() {
 		String str1 = "Hello";
 //		String str2 = "World";
@@ -160,5 +176,6 @@ public class StringBasics {
 		
 //		numberToStringConversion();
 //		returnTotalNoOfDigitsInString(123456);
+		stringImmutability();
 	}
 }
