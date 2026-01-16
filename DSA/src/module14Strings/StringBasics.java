@@ -138,6 +138,9 @@ public class StringBasics {
 		System.out.println(anotherStr);
 		String newString = new String("Hello"); // It will create a new string in the memory which is different from original "Hello" string
 		System.out.println(newString);
+		
+		str = str.substring(0,2) + 'y' + str.substring(3); // New string is created in the memory by replacing 'l' with 'y'. However original string remains same
+		System.out.println(str);
 	}
 	
 	public static void plusOperatorInString() {
