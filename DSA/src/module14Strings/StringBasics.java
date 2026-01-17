@@ -108,22 +108,22 @@ public class StringBasics {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter a number : ");
 		int number = scanner.nextInt();
-		
+
 		String strNumber = ""; // implicit conversion
 		strNumber += number;
 		System.out.println("String value : " + strNumber);
-		
+
 		String str = Integer.toString(number); // explicit conversion
 		System.out.println("String value : " + str);
 		scanner.close();
 	}
-	
+
 	/** It returns the total number of digits in the given number **/
 	public static void returnTotalNoOfDigitsInString(int number) {
 		int count = Integer.toString(number).length();
 		System.out.println("Total number of digits in the string: " + count);
 	}
-	
+
 	/** String Immutability **/
 	public static void stringImmutability() {
 		String str = "Hello";
@@ -136,13 +136,28 @@ public class StringBasics {
 		anotherStr = anotherStr + "Java"; // New string is created in the memory which is "HelloJava"
 		System.out.println(str);
 		System.out.println(anotherStr);
-		String newString = new String("Hello"); // It will create a new string in the memory which is different from original "Hello" string
+		String newString = new String("Hello"); // It will create a new string in the memory which is different from
+												// original "Hello" string
 		System.out.println(newString);
-		
-		str = str.substring(0,2) + 'y' + str.substring(3); // New string is created in the memory by replacing 'l' with 'y'. However original string remains same
+
+		str = str.substring(0, 2) + 'y' + str.substring(3); // New string is created in the memory by replacing 'l' with
+															// 'y'. However original string remains same
 		System.out.println(str);
 	}
-	
+
+	/** It updates the string by replacing characters at even indices with 'a' **/
+	public static void updateString(String s) {
+		String newStr = "";
+		for (int i = 0; i < s.length(); i++) {
+			if (i % 2 == 0) {
+				newStr += 'a';
+			} else {
+				newStr += s.charAt(i);
+			}
+		}
+		System.out.println(newStr);
+	}
+
 	public static void plusOperatorInString() {
 		String str1 = "Hello";
 //		String str2 = "World";
@@ -176,9 +191,10 @@ public class StringBasics {
 
 		printAllSubString("abcd");
 		plusOperatorInString();
-		
+
 //		numberToStringConversion();
 //		returnTotalNoOfDigitsInString(123456);
 		stringImmutability();
+		updateString("abcdefgh");
 	}
 }
