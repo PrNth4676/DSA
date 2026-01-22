@@ -25,8 +25,15 @@ public class StringBuilders {
 			System.out.println("str1 and str2 have different values.");
 		}
 	}
+	
 
 	public static void main(String[] args) {
 		equalityOperators();
+		
+		StringBuilder sb = new StringBuilder("Hello");
+		sb.append(" World");
+		System.out.println(sb.toString()); // Outputs: Hello World
+		
+		
 	}
 }
