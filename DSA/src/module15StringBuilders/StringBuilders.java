@@ -78,6 +78,19 @@ public class StringBuilders {
 		System.out.println(toggledString);
 	}
 	
+	// Appending different types to StringBuilder
+	public static void appendToStringBuilder(StringBuilder sb, String str) {
+		sb.append(str);
+		System.out.println(sb);
+		sb.append(35);
+		System.out.println(sb);
+		sb.append("*");
+		System.out.println(sb);
+		int[] arr = { 1, 2, 3, 4, 5 };
+		sb.append(arr); // Appending array reference where the address will be printed
+		System.out.println(sb);
+	}
+	
 	public static void main(String[] args) {
 //		equalityOperators();
 //		stringBuilderExample();
