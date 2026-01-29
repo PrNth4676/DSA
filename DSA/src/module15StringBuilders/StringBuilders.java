@@ -91,9 +91,22 @@ public class StringBuilders {
 		System.out.println(sb);
 	}
 	
+	
+	public static void insertAndDeleteInStringBuilder() {
+		StringBuilder sb = new StringBuilder("HelloWorld");
+		sb.insert(5, " "); // Inserting space at index 5
+		System.out.println(sb); // Outputs: Hello World
+		sb.delete(5, 6); // Deleting the space we just added
+		System.out.println(sb); // Outputs: HelloWorld
+		sb.deleteCharAt(4); // Deleting character at index 4 ('o')
+		System.out.println(sb); // Outputs: HellWorld
+		System.out.println(sb.charAt(4)); // Outputs: o
+	}
+	
 	public static void main(String[] args) {
 //		equalityOperators();
 //		stringBuilderExample();
 		toggleCharactersInString("Hello");
+		insertAndDeleteInStringBuilder();
 	}
 }
