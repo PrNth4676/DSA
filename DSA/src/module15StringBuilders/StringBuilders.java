@@ -62,7 +62,7 @@ public class StringBuilders {
 		}
 		System.out.println(toggledString);
 	}
-	
+
 	// Alternative Approach using Character class methods
 	public static void toggleCharactersInStringAlternative(String inputString) {
 		StringBuilder toggledString = new StringBuilder(inputString);
@@ -77,7 +77,7 @@ public class StringBuilders {
 		}
 		System.out.println(toggledString);
 	}
-	
+
 	// Appending different types to StringBuilder
 	public static void appendToStringBuilder(StringBuilder sb, String str) {
 		sb.append(str);
@@ -90,8 +90,8 @@ public class StringBuilders {
 		sb.append(arr); // Appending array reference where the address will be printed
 		System.out.println(sb);
 	}
-	
-	
+
+	// Inserting and Deleting in StringBuilder
 	public static void insertAndDeleteInStringBuilder() {
 		StringBuilder sb = new StringBuilder("HelloWorld");
 		sb.insert(5, " "); // Inserting space at index 5
@@ -102,11 +102,60 @@ public class StringBuilders {
 		System.out.println(sb); // Outputs: HellWorld
 		System.out.println(sb.charAt(4)); // Outputs: o
 	}
-	
+
+	// Reverse a StringBuilder without using built-in reverse() method
+	public static void reverseStringBuilder(StringBuilder sb) {
+		// Reverse without using built-in reverse() method
+		int left = 0;
+		int right = sb.length() - 1;
+		while (left < right) {
+			// Swap characters at left and right indices
+			char temp = sb.charAt(left);
+			sb.setCharAt(left, sb.charAt(right));
+			sb.setCharAt(right, temp);
+			left++;
+			right--;
+		}
+		System.out.println(sb); // Outputs: olleH
+	}
+
+	public static void reverseStringBuilder(StringBuilder sb, int i, int j) {
+		// Reverse without using built-in reverse() method
+		while (i <= j) {
+			// Swap characters
+			char temp = sb.charAt(i);
+			sb.setCharAt(i, sb.charAt(j)); // Replace char at 'i' with char at 'j'
+			sb.setCharAt(j, temp);
+			i++;
+			j--;
+		}
+	}
+
+	// Reverse Words In Sentences
+	public static void reverseWordsInSentences(String sentence) {
+		int i = 0, j = 0, n = sentence.length();
+		StringBuilder builder = new StringBuilder(sentence);
+		while (j < n) {
+			if (builder.charAt(j) != ' ') {
+				j++;
+			} else {
+				reverseStringBuilder(builder, i, j - 1);
+				i = j + 1;
+				j = i;
+			}
+		}
+		// Reverse the Last Word
+		reverseStringBuilder(builder, i, j - 1);
+		System.out.println(builder);
+	}
+
 	public static void main(String[] args) {
 //		equalityOperators();
 //		stringBuilderExample();
-		toggleCharactersInString("Hello");
-		insertAndDeleteInStringBuilder();
+//		toggleCharactersInString("Hello");
+//		insertAndDeleteInStringBuilder();
+		StringBuilder builder = new StringBuilder("Hello");
+		reverseStringBuilder(builder);
+		reverseWordsInSentences("Hello World from Java");
 	}
 }
