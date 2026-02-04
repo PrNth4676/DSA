@@ -174,6 +174,31 @@ public class StringBuilders {
 		System.out.println();
 	}
 
+	public static void isAnagram(String str1, String str2) {
+		if (str1.length() != str2.length()) {
+			System.out.println("Not Anagrams");
+			return;
+		}
+		char[] arr1 = str1.toCharArray();
+		char[] arr2 = str2.toCharArray();
+		Arrays.sort(arr1);
+		Arrays.sort(arr2);
+		// Method 1 : Using Arrays.equals() method
+		if (Arrays.equals(arr1, arr2)) {
+			System.out.println("Anagrams");
+		} else {
+			System.out.println("Not Anagrams");
+		}
+		// Method 2 : Finding first non-matching character and verifying if not an anagram
+		for(int i=0;i<arr1.length;i++) {
+			if(arr1[i]!=arr2[i]) {
+				System.out.println("First non-matching character: "+arr1[i]+" and "+arr2[i]);
+				System.out.println("Since mismatch found, hence not an anagram");
+				break;
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 //		equalityOperators();
 //		stringBuilderExample();
@@ -184,5 +209,6 @@ public class StringBuilders {
 		reverseWordsInSentences("I am Pratik Nath");
 		sortString("pratik");
 		sortStringBuilder("pratik");
+		isAnagram("listen", "silent");
 	}
 }
