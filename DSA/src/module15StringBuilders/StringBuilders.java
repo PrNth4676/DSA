@@ -1,5 +1,7 @@
 package module15StringBuilders;
 
+import java.util.Arrays;
+
 public class StringBuilders {
 
 	public static void equalityOperators() {
@@ -149,6 +151,29 @@ public class StringBuilders {
 		System.out.println(builder);
 	}
 
+	// Sorting a String and in StringBuilder lexicographically i.e., dictionary
+	// order
+	public static void sortString(String str) {
+		char[] letters = str.toCharArray();
+		// Sort using sort function of Array
+		Arrays.sort(letters);
+		for (char c : letters) {
+			System.out.print(c);
+		}
+		System.out.println();
+	}
+
+	public static void sortStringBuilder(String str) {
+		StringBuilder builder = new StringBuilder(str);
+		char[] letters = builder.toString().toCharArray();
+		// Sort using sort function of Array
+		Arrays.sort(letters);
+		for (char c : letters) {
+			System.out.print(c);
+		}
+		System.out.println();
+	}
+
 	public static void main(String[] args) {
 //		equalityOperators();
 //		stringBuilderExample();
@@ -156,6 +181,8 @@ public class StringBuilders {
 //		insertAndDeleteInStringBuilder();
 		StringBuilder builder = new StringBuilder("Hello");
 		reverseStringBuilder(builder);
-		reverseWordsInSentences("Hello World from Java");
+		reverseWordsInSentences("I am Pratik Nath");
+		sortString("pratik");
+		sortStringBuilder("pratik");
 	}
 }
