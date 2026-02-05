@@ -189,14 +189,83 @@ public class StringBuilders {
 		} else {
 			System.out.println("Not Anagrams");
 		}
-		// Method 2 : Finding first non-matching character and verifying if not an anagram
-		for(int i=0;i<arr1.length;i++) {
-			if(arr1[i]!=arr2[i]) {
-				System.out.println("First non-matching character: "+arr1[i]+" and "+arr2[i]);
+		// Method 2 : Finding first non-matching character and verifying if not an
+		// anagram
+		for (int i = 0; i < arr1.length; i++) {
+			if (arr1[i] != arr2[i]) {
+				System.out.println("First non-matching character: " + arr1[i] + " and " + arr2[i]);
 				System.out.println("Since mismatch found, hence not an anagram");
 				break;
 			}
 		}
+	}
+
+	// Finding the most occurring character in a string with only lowercase letters
+	public static void mostOccuringCharacter(String str) {
+		char[] letters = str.toCharArray();
+		Arrays.sort(letters); // Sorting the Array
+		int[] frequency = new int[26]; // Assuming only lowercase letters where a=0th index, b=1, c=2 ... z=25
+		// Calculating Frequency
+		for (char c : letters) {
+			// Getting the ASCII value offset i.e., 'a' = 97
+			int charIndex = c - 'a';
+			// Incrementing frequency count for character c by incrementing at its index
+			frequency[charIndex]++;
+		}
+		// Finding Maximum Frequency
+		int maxFreq = -1;
+		for (int freq : frequency) {
+			if (freq > maxFreq) {
+				maxFreq = freq;
+			}
+			// It can also be written as maxFreq = Math.max(maxFreq, freq);
+//			maxFreq = Math.max(maxFreq, freq);
+		}
+		System.out.println("Maximum Occurrence is: " + maxFreq + " with character(s): " + letters[maxFreq - 1]);
+	}
+
+	public static void isIsomorphic(String str1, String str2) {
+		if (str1.length() != str2.length()) {
+			System.out.println("Not Isomorphic");
+			return;
+		}
+		// One-to-One mapping of characters are only allowed
+		char[] a = new char[128];
+		for (int i = 0; i < str1.length(); ++i) {
+			char c = str1.charAt(i);
+			char d = str2.charAt(i);
+			int index = (int) c;
+			if (a[index] == '\0') {
+				a[index] = d;
+			} else {
+				// If character is already present in the index
+				if (a[index] != d) {
+					System.out.println("Not Isomorphic");
+					return;
+				}
+			}
+		}
+		// To check the other way around i.e., str1 with str2
+		// Empty the char array for re-use
+		for (int i = 0; i < 128; ++i) {
+			a[i] = '\0';
+		}
+		for (int i = 0; i < str1.length(); ++i) {
+			char c = str2.charAt(i);
+			char d = str1.charAt(i);
+			int index = (int) c;
+			if (a[index] == '\0') {
+				a[index] = d;
+			} else {
+				// If character is already present in the index
+				if (a[index] != d) {
+					System.out.println("Not Isomorphic");
+					return;
+				}
+			}
+		}
+		System.out.println("Isomorphic");
+		return;
 	}
 
 	public static void main(String[] args) {
@@ -210,5 +279,7 @@ public class StringBuilders {
 		sortString("pratik");
 		sortStringBuilder("pratik");
 		isAnagram("listen", "silent");
+		mostOccuringCharacter("abaaacrmnrra");
+		isIsomorphic("egg", "add");
 	}
 }
