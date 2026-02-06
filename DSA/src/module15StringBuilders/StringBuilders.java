@@ -224,6 +224,7 @@ public class StringBuilders {
 		System.out.println("Maximum Occurrence is: " + maxFreq + " with character(s): " + letters[maxFreq - 1]);
 	}
 
+	// Checking if two strings are Isomorphic or not
 	public static void isIsomorphic(String str1, String str2) {
 		if (str1.length() != str2.length()) {
 			System.out.println("Not Isomorphic");
@@ -268,6 +269,80 @@ public class StringBuilders {
 		return;
 	}
 
+	// Removing leading zeros from a string
+	public static String removeLeadingZeros(String str) {
+		int i = 0;
+		while (i < str.length() && str.charAt(i) == '0') {
+			i++;
+		}
+		return str.substring(i);
+	}
+
+	// Finding the maximum of two numbers represented as strings
+	public static String returnMax(String a, String b) {
+		String s = removeLeadingZeros(a);
+		String t = removeLeadingZeros(b);
+		if (s.length() > t.length())
+			return a;
+		if (s.length() < t.length())
+			return b;
+		for (int i = 0; i < s.length(); ++i) {
+			if (s.charAt(i) != t.charAt(i)) {
+				if (s.charAt(i) > t.charAt(i))
+					return a;
+				else
+					return b;
+			}
+		}
+		return a; // If both are equal
+	}
+
+	// Finding the maximum numbers from an array of strings containing numbers
+	public static void returnMaxValue(String[] str) {
+		double maxValue = Double.parseDouble(str[0]);
+		for (int i = 1; i < str.length; ++i) {
+			double value = Double.parseDouble(str[i]);
+			if (value > maxValue) {
+				maxValue = value;
+			}
+		}
+		System.out.println("Maximum Value is: " + maxValue);
+	}
+
+	// Alternative Approach without using built-in parsing functions
+	public static void returnMaxValueAlternative(String[] str) {
+		String maxValue = str[0];
+		for (int i = 1; i < str.length; ++i) {
+			maxValue = returnMax(maxValue, str[i]);
+		}
+		System.out.println("Maximum Value is: " + maxValue);
+	}
+
+	// Compressing a string by replacing consecutive duplicate characters with the
+	// character followed by the count of duplicates
+	public static String returnCompressedString(String str) {
+		StringBuilder compressedString = new StringBuilder();
+		char[] letters = str.toCharArray();
+		int i = 0, j = 0, length = 0;
+		while (j < letters.length) {
+			if (letters[i] == letters[j]) {
+				j++; // If the letters are equal then just iterate
+			} else {
+				length = (j - i);
+				compressedString.append(letters[i]);
+				if (length > 1) {
+					compressedString.append(length);
+				}
+				i = j;
+			}
+		}
+		// Append the last letter
+		compressedString.append(letters[i]);
+		compressedString.append(j - i);
+		System.out.println(compressedString.toString());
+		return compressedString.toString();
+	}
+
 	public static void main(String[] args) {
 //		equalityOperators();
 //		stringBuilderExample();
@@ -281,5 +356,9 @@ public class StringBuilders {
 		isAnagram("listen", "silent");
 		mostOccuringCharacter("abaaacrmnrra");
 		isIsomorphic("egg", "add");
+		String[] str = { "3143654457474785686865", "-2718", "0025", "0.577" };
+//		returnMaxValue(str);
+//		returnMaxValueAlternative(str);
+		returnCompressedString("aaaabbcddefgg");
 	}
 }
