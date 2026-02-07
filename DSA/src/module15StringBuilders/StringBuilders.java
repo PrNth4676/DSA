@@ -358,7 +358,7 @@ public class StringBuilders {
 		isIsomorphic("egg", "add");
 		String[] str = { "3143654457474785686865", "-2718", "0025", "0.577" };
 //		returnMaxValue(str);
-//		returnMaxValueAlternative(str);
+		returnMaxValueAlternative(str);
 		returnCompressedString("aaaabbcddefgg");
 	}
 }
