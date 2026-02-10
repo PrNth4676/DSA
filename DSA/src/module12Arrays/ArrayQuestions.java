@@ -515,7 +515,7 @@ public class ArrayQuestions {
 //		for (int i : result) {
 //			System.out.print(i + " ");
 //		}
-//		int a[] = { 11, 33, 100, 54, 79, 33, 1 };
+		int a[] = { 11, 33, 100, 54, 79, 33, 1 };
 //		int b[] = { 26, 54, 69, 80, 90 };
 //		int c[] = mergeSortedArrayInReverse(a, b);
 //		int c[] = mergeSortedArray(a, b);
@@ -530,7 +530,8 @@ public class ArrayQuestions {
 //			System.out.print(i + " ");
 //		}
 //		System.out.println(findProductOfElements(a));
-//		System.out.println(findSecondLargestElement(a));
+		System.out.println(findSecondLargestElement(a));
+//		nextGreatestElement(a);
 //		System.out.println(findSmallestElement(a));
 //		System.out.println(findDuplicateElement(a));
 //		int s[] = { 1, 2, 3, 4, 5, 6 };
@@ -546,7 +547,7 @@ public class ArrayQuestions {
 //		}
 //		int a[] = { 1, 1, 2, 2, 3, 3, 4, 5, 5 };
 //		System.out.println(uniqueNumberInArray(a));
-		int a[] = { 1, 2, 3, 4, 3, 2, 1 };
-		System.out.println(isArrayPalindrome(a));
+//		int a[] = { 1, 2, 3, 4, 3, 2, 1 };
+//		System.out.println(isArrayPalindrome(a));
 	}
 }
